@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: monospace, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+body {
+  background-color: #24383e;
+}
+.container {
+  padding: 5% 10%;
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+
+.join-us {
+  background-color: black;
+  width: 50vw;
+  height: 90vh;
+  border-radius: 30px;
+  padding: 5rem;
+  position: relative;
+  text-align: center;
+}
+.title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.x {
+  position: absolute;
+  top: 15px;
+  left: 20px;
+  font-size: 2rem;
+  font-weight: bolder;
+}
+
+.btn {
+  width: 80%;
+  height: 45px;
+  font-size: 1rem;
+  font-weight: bolder;
+  margin: 1rem;
+  border-radius: 50px;
+}
