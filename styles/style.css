@@ -1,0 +1,88 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.hero{
+    display: flex;
+}
+
+.hero-element{
+    width: 50%;
+}
+
+.hero-image{
+    width: 100%;
+    height: 121%;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+}
+
+.item{
+    width: 100%;
+    padding: 3% 5%;
+}
+
+.item-title{
+    font-size: 70px;
+    font-family: sans-serif;
+}
+
+.item-subtitle1{
+    font-size: 35px;
+    font-family: sans-serif;
+}
+
+.hero-button{
+    margin-top: 5%;
+    padding: 2% 5%;
+    border: none;
+    border-radius: 50px;
+    background-color: #1d9bf0;
+    color: white;
+    font-size: 16px;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+.hero-button:hover{
+    cursor: pointer;
+    background-color: #1a8cd8;
+}
+
+h6{
+    padding-top: 1%;
+    color: #98949d;
+    font-family: sans-serif;
+}
+
+span{
+    color: #1d9bf2;
+}
+
+.item-subtitle2{
+    margin-top: 5%;
+    font-size: 20px;
+    font-family: sans-serif;
+}
+
+.signin-button{
+    margin-top: 3%;
+    padding: 2% 19%;
+    border-radius: 50px;
+    border: 1px solid #cfd9de;
+    color: #1d9bf0;
+    background-color: #ffff;
+    font-size: 16px;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+.signin-button:hover{
+    cursor: pointer;
+    background-color: #e8f5fe;
+}
