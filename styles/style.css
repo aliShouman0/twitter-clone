@@ -6,6 +6,7 @@
 
 .hero{
     display: flex;
+    opacity: 1;
 }
 
 .hero-element{
@@ -86,3 +87,116 @@ span{
     cursor: pointer;
     background-color: #e8f5fe;
 }
+
+.login-popup{
+    display: none;
+    position: absolute;
+    background-color: white;
+    width: 45%;
+    height: auto;
+    border-radius: 20px;
+    flex-direction: column;
+    margin: 5% 26%;
+}
+
+.all{
+    position: relative;
+}
+
+.header{
+    display: flex;
+    position: relative;
+}
+
+.icon{
+    flex-basis: 45%;
+}
+
+.logo{
+    flex-basis: 55%;
+}
+
+.close-button{
+    background-color: white;
+    border: none;
+    font-size: 20px;
+    font-weight: 100;
+    float: left;
+    width: 40px;
+    height: 40px;
+    margin: 10px 10px;
+}
+
+.close-button:hover{
+    background-color: #e6e7e7;
+    cursor: pointer;
+    border-radius: 60px;
+}
+
+.twitter-logo{
+    float: left;
+    margin-top: 8px;
+    width: 45px;
+    height: 40px;
+}
+
+.signin-title{
+    margin-top: 20px;
+    font-family: sans-serif;
+}
+
+.input{
+    margin-top: 50px;
+    padding: 18px 50px;
+    border-radius: 5px;
+    border: 1px solid #cfd9de;
+    outline: none;
+}
+
+.password{
+    margin-top: 20px;
+}
+
+::placeholder{
+    font-size: 14px;
+}
+
+.input-email:focus{
+    border: 2px solid #1d9bf0;
+}
+
+.popup-button{
+    border-radius: 50px;
+    margin-top: 25px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.next{
+    color: white;
+    background-color: #0f1419;
+    padding: 1% 20%;
+}
+
+.forgot{
+    color: #0f1419;
+    background-color: white;
+    border: 1px solid #cfd9de;
+    padding: 1% 13%;
+}
+
+.last{
+    margin-top: 50px;
+}
+
+h4{
+    color: #536471;
+    font-weight: lighter;
+    font-family: sans-serif;
+    margin-bottom: 30px;
+}
+
+span{
+    color: #1d9bf0;
+}
+

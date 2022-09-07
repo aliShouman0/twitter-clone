@@ -2,10 +2,33 @@
     <head>
         <link rel="stylesheet" href="styles/style.css" />
         <link rel="icon" href="images/icon_twitter.png" />
-
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <title>Twitter</title>
-    </head>
+    </head> 
     <html>
+        <div class="all">
+            <center><div class="login-popup" id="login-pop">
+                <div class="popup header">
+                    <div class="popup-item icon">
+                        <button class="close-button" id="close" title="close"><i class="fa fa-close"></i></button>
+                    </div>
+                    <div class="popup-item logo">
+                        <img src="images/twitter_logo.png" class="twitter-logo"/>
+                    </div>
+                </div>
+                <div class="popup-item">
+                    <h1 class="signin-title">Sign in to Twitter</h1>
+                </div>
+                <div class="popup-item">
+                    <input type="text" placeholder="Phone,email, or username" class="input"/><br>
+                    <input type="password" placeholder="Password" class="input password"/><br>
+                    <button class="popup-button next">LOGIN</button><br>
+                    <button class="popup-button forgot">Forgot password?</button>
+                </div>
+                <div class="popup-item last">
+                    <h4>Don't have an account? <span>Sign up</span></h4>
+                </div>
+            </div></center>
         <div class="hero">
             <div class="hero-element">
                 <img src="images/hero.png" class="hero-image"/>
@@ -25,9 +48,11 @@
                 </div>
                 <div class="hero-element item">
                     <h2 class="item-subtitle2">Already have an account?</h2>
-                    <button class="signin-button ">Sign in</button>
+                    <button class="signin-button" id="open">Sign in</button>
                 </div>
             </div>
         </div>
+    </div>
+    <script src="index.js"></script>
     </html>
 </html>
