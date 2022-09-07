@@ -1,3 +1,4 @@
+/* css reset */
 * {
   margin: 0;
   padding: 0;
@@ -32,11 +33,25 @@ body {
   text-align: center;
 }
 
+.left {
+  text-align: left;
+  padding: 3.5rem;
+}
+
+.d-none {
+  display: none;
+}
+
+.goBack {
+  z-index: -1;
+}
+
 .title {
   font-size: 1.3rem;
   margin-bottom: 1.7rem;
 }
 
+/* x close the popup or go to main page */
 .close {
   position: absolute;
   top: 15px;
@@ -48,6 +63,11 @@ body {
   color: white;
 }
 
+.close a {
+  color: white;
+  text-decoration: none;
+}
+
 .btn {
   width: 70%;
   height: 55px;
@@ -57,10 +77,18 @@ body {
   border-radius: 50px;
   cursor: pointer;
 }
+
+.btn:hover {
+  background-color: #bcbcbc;
+}
+
 button[disabled] {
   color: rgb(150, 150, 150);
   cursor: not-allowed;
 }
+
+/*  chooce sigup method 1st section */
+
 .sign-up-btn {
   display: flex;
   align-items: center;
@@ -68,55 +96,56 @@ button[disabled] {
   margin: auto;
   margin-top: 1.3rem;
 }
+
+/* the google and apple logo */
 svg {
   margin-right: 0.9rem;
   height: 20px;
   width: 20px;
 }
+
 hr {
   display: inline-flex;
   margin: auto;
   width: 30%;
   border-color: rgb(84, 84, 84);
 }
+
 .hr > span {
   font-size: 1.3rem;
   margin: 20px;
 }
+
 .policy {
-  margin: 0.9rem 5rem;
+  margin: 2rem 0 5rem 5rem;
   text-align: left;
   width: 80%;
   height: 90%;
-  font-size: 0.7rem;
+  font-size: 0.9rem;
 }
-.policy > span > a {
+
+.policy a {
   text-decoration: none;
   color: #1d9bf0;
 }
 
+.policy a:hover {
+  text-decoration: underline;
+}
+
+/* popup form 2nd section   */
 .popup-signup {
   z-index: 2;
   position: absolute;
   transition: all 0.3s ease-in-out;
 }
-.d-none {
-  display: none;
-}
-.goBack {
-  z-index: -1;
-}
 
+/* step of creating account */
 .step {
   font-size: 1.2rem;
   font-weight: bolder;
   padding-bottom: 10px;
   margin-bottom: 2rem;
-}
-
-.left {
-  text-align: left;
-  padding: 3.5rem;
 }
 
 .card {
@@ -142,27 +171,27 @@ hr {
   border: solid 2px #199bf0;
 }
 
-.right {
+.use-email {
   text-align: right;
 }
 
-.right > a {
+.use-email > a {
   text-decoration: none;
   color: #199bf0;
   font-size: 0.8rem;
 }
 
-.right > a:hover {
+.use-email > a:hover {
   text-decoration: underline;
 }
 
+/* to remove arrow from input number */
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-
 /* Firefox */
 input[type="number"] {
   -moz-appearance: textfield;
@@ -205,23 +234,8 @@ input[type="number"] {
   margin-top: 5px;
   font-size: 1.2rem;
 }
+
 /* Media Query */
 
 @media only screen and (max-width: 700px) {
-  /* .title {
-    font-size: 0.8rem;
-  }
-  .btn {
-    font-size: 0.6rem;
-  }
-  .policy > span {
-    font-size: 0.4rem;
-  } */
-  /* .btn{
-    background-color: red;
-  }
-  .join-us {
-    width: 90vw;
-    height: 50vh;
-  } */
 }
