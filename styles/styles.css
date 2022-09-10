@@ -4,6 +4,7 @@
   padding: 0;
   font-family: monospace, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
+
 body {
   background-color: #24383e;
   height: 100vh;
@@ -236,6 +237,42 @@ input[type="number"] {
 }
 
 /* Media Query */
+/* this section not end */
+@media only screen and (max-width: 980px) {
+  .join-style {
+    margin-top: 5rem;
+    width: 85vw;
+    height: 85vh;
+  }
+  .title {
+    padding: 0.8rem;
+    font-size: 2.2rem;
+  }
+  .close {
+    font-size: 2.5rem;
+    background-color: transparent;
+  }
 
-@media only screen and (max-width: 700px) {
+  .btn {
+    width: 80%;
+    height: 90px;
+    font-size: 2rem;
+    margin: 2rem;
+    padding: 1.2rem;
+  }
+  .sign-up-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    margin: auto;
+    margin-top: 5rem;
+  }
+
+
+  .policy {
+    font-size: 1.8rem; 
+   }
+  /* .box{
+    
+  } */
 }
