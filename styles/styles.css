@@ -156,7 +156,7 @@ hr {
 }
 
 .input {
-  width: 100%;
+  width: 35vw;
   height: 60px;
   border-radius: 5px;
   background-color: black;
@@ -239,11 +239,31 @@ input[type="number"] {
 /* Media Query */
 /* this section not end */
 @media only screen and (max-width: 980px) {
-  .join-style {
-    margin-top: 5rem;
-    width: 85vw;
-    height: 85vh;
+  body {
+    overflow-x: hidden;
   }
+
+  .join-style {
+    /* margin-top: 5rem;
+    width: 85vw;
+    height: 85vh; */
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    overflow: hidden;
+  }
+
+  /* 
+.join-style {
+  background-color: black;
+  width: 40vw;
+  height: 78vh;
+  border-radius: 30px;
+  padding: 2rem;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+} */
+
   .title {
     padding: 0.8rem;
     font-size: 2.2rem;
@@ -251,28 +271,48 @@ input[type="number"] {
   .close {
     font-size: 2.5rem;
     background-color: transparent;
+    border: none;
   }
 
   .btn {
     width: 80%;
     height: 90px;
     font-size: 2rem;
-    margin: 2rem;
+    margin: 2rem auto;
     padding: 1.2rem;
+    
   }
   .sign-up-btn {
     display: flex;
     align-items: center;
-    justify-content: center; 
+    justify-content: center;
     margin: auto;
     margin-top: 5rem;
   }
 
-
   .policy {
-    font-size: 1.8rem; 
-   }
-  /* .box{
+    font-size: 1.8vw;
+  }
+  .input {
+    display: block;
+    margin: 1rem auto;
+  }
+
+  .month,
+  .day,
+  .year {
+    width: 30%; 
+  }
+  .use-email{
+    text-align: center;
+  }
+
+  .date     {    
+    text-align: center;
+    margin: auto;
+    max-width: 80%;
+  }
+    /* .box{
     
   } */
 }
