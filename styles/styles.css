@@ -7,10 +7,16 @@
 
 body {
   background-color: black;
+  
+}
+
+.overflow-n{
+  overflow: hidden;
 }
 
 .d-none {
   display: none;
+  transition: all 0.5s ease-in-out;
 }
 
 /* the big rectangle  whole page */
@@ -20,7 +26,7 @@ body {
   border: 1px solid rgb(47, 51, 54);
   border-top: none;
   border-bottom: none;
-  color: white;
+  color: white; 
 }
 
 /* username and nb of tweet and goback */
@@ -205,11 +211,13 @@ body {
   font-weight: bolder;
 }
 
-.tweet-info .userName {
+.tweet-info .userName,.tweet-date {
   font-size: 0.8vw;
   font-weight: lighter;
   margin-top: 0.1rem;
 }
+
+ 
 
 .tweet-text {
   font-size: 1vw;
@@ -242,10 +250,12 @@ body {
 
 .overlay {
   position: absolute;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background-color: rgba(91, 112, 131, 0.4);
   z-index: 1;
+  transition: all 0.5s ease-in-out;
+  overflow-y: auto;
 }
 
 .edit-container {
@@ -257,11 +267,9 @@ body {
   top: 2rem;
   left: 30%;
   border-radius: 8px;
-  color: white;
-  overflow-y: auto;
-}
-
-.header {
+  color: white; 
+  transition: all 0.5s ease-in-out;
+  overflow-y: scroll;
 }
 
 .edit-container .close {
@@ -319,7 +327,7 @@ body {
   margin-top: 5rem;
 }
 
-.input {
+.input,.bio {
   width: 35vw;
   height: 60px;
   border-radius: 5px;
@@ -332,7 +340,7 @@ body {
   outline: none;
 }
 
-.input:focus {
+.input:focus,.bio:focus {
   border: solid 2px #199bf0;
 }
 
@@ -378,8 +386,12 @@ input[type="number"] {
   width: 30%;
   margin-top: 1.2rem;
 }
- 
 
-.input-edit form input {
+.input-edit form input,.bio {
   width: 90%;
+}
+
+.bio{
+  height: 80px;
+  padding-top:10px ;
 }

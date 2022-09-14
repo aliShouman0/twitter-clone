@@ -9,9 +9,9 @@
   <link rel="stylesheet" href="styles/styles.css">
 </head>
 
-<body>
+<body id="body">
   <!-- overlay for edit profile -->
-  <div class="overlay "></div>
+  <div id="overlay" class="overlay d-none"></div>
   <div class="container">
 
     <div class="header">
@@ -34,7 +34,7 @@
     </div>
 
     <div class="profile-info">
-      <button class="btn">Edit profile</button>
+      <button class="btn" id="edit_profile">Edit profile</button>
       <div class="info-content">
         <h2 class="fullName">Emily Zugay</h2>
         <p class="userName">@Emily_Zugay10</p>
@@ -61,7 +61,9 @@
         <div class="profilePhoto-circle samll"></div>
         <div class="tweet-info">
           <h4 class="fullName">Emily Zugay</h4>
-          <p class="userName">@Emily_Zugay10</p>
+          <span class="userName">@Emily_Zugay10</span>
+          <span class="tweet-date">October 2021</span>
+
           <p class="tweet-text">A new version (v18.8.0) of
             @nodejs
             is out!
@@ -85,7 +87,8 @@
         <div class="profilePhoto-circle samll"></div>
         <div class="tweet-info">
           <h4 class="fullName">Emily Zugay</h4>
-          <p class="userName">@Emily_Zugay10</p>
+          <span class="userName">@Emily_Zugay10</span>
+          <span class="tweet-date">October 2021</span>
           <p class="tweet-text">A new version (v18.8.0) of
             @nodejs
             is out!
@@ -114,7 +117,8 @@
         <img src="assets/photo-1438761681033-6461ffad8d80.jpeg" class="otherUserPhoto samll">
         <div class="tweet-info">
           <h4 class="fullName">Joey Arhar</h4>
-          <p class="userName">@matteocollina</p>
+          <sap class="userName">@matteocollina</sap>
+          <span class="tweet-date">October 2019</span>
           <p class="tweet-text">A new version (v18.8.0) of
             I just discovered that baby owls sleep on their stomachs cause their heads are too heavy and I can’t stop
             laughing</p>
@@ -128,9 +132,9 @@
       </div>
     </div>
 
-    <div class="edit-container">
+    <div id="edit_container" class="edit-container  d-none ">
       <div class="header">
-        <div class="close">
+        <div class="close" id="close">
           <i class="fa-regular fa-circle-xmark fa-2x"></i>
         </div>
         <span class="title">Edit profile</span>
@@ -150,7 +154,7 @@
         <form>
           <input type="text" placeholder="Name" id="fullName" name="fullName" class="input" required>
           <input type="number" placeholder="Phone" id="phone" name="phone" class="input" required>
-
+          <textarea id="bio" class="bio" cols="30" placeholder="Bio"></textarea>
           <div class="date">
             <p><b>Date of birth</b></p>
             <select class="input month" id="month" name="month" required>
