@@ -9,6 +9,10 @@ body {
   background-color: black;
 }
 
+.d-none {
+  display: none;
+}
+
 /* the big rectangle  whole page */
 .container {
   width: 55%;
@@ -89,11 +93,18 @@ body {
   left: 2%;
 }
 
+.otherUserPhoto {
+  height: 4rem;
+  width: 4rem;
+  margin-left: 2%;
+  border-radius: 100%;
+  border: 3px solid black;
+}
+
 /* profile-info */
 
 .profile-info {
   display: flex;
-
   flex-direction: column;
 }
 
@@ -156,18 +167,19 @@ body {
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   position: relative;
 }
-.content a {
+.content .bar-btn {
   color: white;
   text-decoration: none;
   font-size: 1.2vw;
+  cursor: pointer;
 }
 
-.content a.active {
+.content .bar-btn.active {
   border-bottom: 4px solid #00a3ff;
   border-radius: 1px;
 }
 
-.tweets-container {
+.user-tweet {
   display: flex;
   margin: 1rem 0;
   width: 100%;
@@ -199,9 +211,89 @@ body {
   margin-top: 0.1rem;
 }
 
-.tweet-text{
+.tweet-text {
   font-size: 1vw;
   font-weight: lighter;
   margin: 0.7rem 0;
-
 }
+
+.nb-like {
+  margin-top: 0.5rem;
+  text-align: end;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.nb-like span {
+  margin-left: 5px;
+}
+
+.nb-like:hover {
+  color: rgb(138, 43, 43, 0.8);
+}
+
+.tweet-media {
+  border-radius: 5px;
+  max-height: 30rem;
+  width: 100%;
+}
+
+/* edit profile */
+
+.overlay {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(91, 112, 131, 0.4);
+  z-index: 1;
+}
+
+.edit-container {
+  z-index: 2;
+  position: absolute;
+  height: 35rem;
+  width: 35rem;
+  background-color: black;
+  top: 2rem;
+  left: 30%;
+  border-radius: 8px;
+  color: white;
+  overflow-y: auto;
+}
+
+.header {
+}
+
+.edit-container .close {
+  margin: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.edit-container .close:hover,
+.edit-container .btn-save:hover {
+  color: rgba(91, 112, 131, 0.4);
+}
+
+.edit-container .title {
+  font-size: 2vw;
+  padding: 1rem;
+}
+
+.edit-container .btn-save {
+  background-color: white;
+  color: black;
+  font-weight: bolder;
+  padding: 0.7rem;
+  border-radius: 50px;
+  margin: 0.7rem;
+  margin-left: auto;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.edit-container .btn-save:hover {
+  background-color: rgba(91, 112, 131, 0.2);
+  color: white;
+}
+
