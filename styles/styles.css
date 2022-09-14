@@ -75,9 +75,9 @@ body {
   opacity: 0.9;
 }
 
-.profilePhoto-container .profilePhoto-circle {
+.profilePhoto-circle {
   background: url("../assets/download.png");
-  height: 8rem;
+  height: 7rem;
   width: 8rem;
   background-size: cover;
   background-repeat: no-repeat;
@@ -147,4 +147,61 @@ body {
 .following span {
   color: white;
   padding-right: 10px;
+}
+
+.horizontal-bar .content {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+}
+.content a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2vw;
+}
+
+.content a.active {
+  border-bottom: 4px solid #00a3ff;
+  border-radius: 1px;
+}
+
+.tweets-container {
+  display: flex;
+  margin: 1rem 0;
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1rem 0;
+}
+
+.profilePhoto-circle.samll {
+  position: relative;
+  height: 3.8rem;
+  width: 3.8rem;
+  left: 2%;
+}
+
+.tweet-info {
+  width: 80%;
+  margin: 0 1rem;
+  letter-spacing: 0.8px;
+}
+
+.tweet-info .fullName {
+  font-size: 1.2vw;
+  font-weight: bolder;
+}
+
+.tweet-info .userName {
+  font-size: 0.8vw;
+  font-weight: lighter;
+  margin-top: 0.1rem;
+}
+
+.tweet-text{
+  font-size: 1vw;
+  font-weight: lighter;
+  margin: 0.7rem 0;
+
 }
