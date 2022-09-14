@@ -2,12 +2,50 @@
 <html lang="en">
 
 <head>
-  <title>Document</title>
+  <title>Profile</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="styles/styles.css">
 </head>
 
 <body>
+  <div class="container">
 
+    <div class="header">
+      <div class="icon">
+        <img src="assets/go_back .png" alt="go_back"> </div>
+      <div class="header-content">
+        <p class="fullName">
+          Emily Zugay
+        </p>
+        <small class="tweetsNumber">
+          0 Tweets</small>
+      </div>
+    </div>
+
+    <div class="profilePhoto-container">
+      <!--big photo  -->
+      <div class="profilePhoto-big"></div>
+      <!-- circle photo-->
+      <div class="profilePhoto-circle"></div>
+    </div>
+
+    <div class="profile-info">
+      <button class="btn">Edit prodife</button>
+      <div class="info-content">
+        <h2 class="fullName">Emily Zugay</h2>
+        <p class="userName">@Emily_Zugay10</p>
+        <p class="joinDate"><i class="fa-solid fa-calendar-days"></i>Joined October 2021</p>
+        <div class="info-stat">
+          <p class="following"><span id="following-nb">920</span>Following</p>
+          <p class="followers"><span id="followers-nb">112</span>Followers</p>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
   <script src="scripts/index.js"></script>
 </body>
 

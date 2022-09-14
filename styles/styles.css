@@ -2,5 +2,149 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: monospace, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-family: sans-serif;
+}
+
+body {
+  background-color: black;
+}
+
+/* the big rectangle  whole page */
+.container {
+  width: 55%;
+  margin: 0 auto;
+  border: 1px solid rgb(47, 51, 54);
+  border-top: none;
+  border-bottom: none;
+  color: white;
+}
+
+/* username and nb of tweet and goback */
+.container .header {
+  display: flex;
+  align-items: flex-start;
+  padding: 0.3rem;
+}
+
+.header .icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 1rem;
+  transition: all 0.3s ease-in-out;
+  padding: 0.5rem;
+  border-radius: 100%;
+}
+
+.header .icon:hover,
+.profile-info .btn:hover {
+  background-color: rgba(171, 171, 171, 0.4);
+}
+
+.header .icon img {
+  width: 100%;
+  height: 100%;
+  color: white;
+  cursor: pointer;
+}
+
+.header .fullName {
+  font-size: 1.5vw;
+  font-weight: bolder;
+  margin-left: 1rem;
+}
+
+.header .tweetsNumber {
+  font-size: 1vw;
+  font-weight: lighter;
+  color: rgba(174, 172, 172, 1);
+  margin-left: 1rem;
+}
+
+/* profilePhoto */
+.profilePhoto-container {
+  position: relative;
+  max-height: 30vh;
+}
+.profilePhoto-container .profilePhoto-big {
+  background: url("../assets/profile.jpg");
+  height: 20vh;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.9;
+}
+
+.profilePhoto-container .profilePhoto-circle {
+  background: url("../assets/download.png");
+  height: 8rem;
+  width: 8rem;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 100%;
+  border: 3px solid black;
+  position: absolute;
+  top: 50%;
+  left: 2%;
+}
+
+/* profile-info */
+
+.profile-info {
+  display: flex;
+
+  flex-direction: column;
+}
+
+.profile-info .btn {
+  align-self: flex-end;
+  margin: 1rem;
+  padding: 0.6rem;
+  border-radius: 50px;
+  background-color: transparent;
+  color: white;
+  border: 1px solid rgba(174, 172, 172, 0.7);
+  cursor: pointer;
+  font-size: 1vw;
+  font-weight: bolder;
+  transition: all 0.3s ease-in-out;
+}
+
+.info-content {
+  margin: 0 2vw;
+}
+
+.info-content .fullName {
+  font-size: 2.5vw;
+  color: white;
+}
+
+.info-content .userName,
+.joinDate,
+.info-content {
+  font-weight: lighter;
+  font-size: 1vw;
+  padding: 1vh 0;
+  color: rgba(174, 172, 172, 1);
+}
+
+.joinDate > i {
+  padding-right: 0.4vw;
+  margin-top: 10px;
+}
+
+.info-stat {
+  display: flex;
+  margin-top: 6px;
+}
+
+.info-stat > p {
+  margin-right: 30px;
+}
+
+.followers span,
+.following span {
+  color: white;
+  padding-right: 10px;
 }
