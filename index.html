@@ -12,209 +12,242 @@
 <body id="body">
   <!-- overlay for edit profile -->
   <div id="overlay" class="overlay d-none"></div>
-  <div class="container">
 
-    <div class="header">
-      <div class="icon">
-        <img src="assets/go_back .png" alt="go_back"> </div>
-      <div class="header-content">
-        <p class="fullName">
-          Emily Zugay
-        </p>
-        <small class="tweetsNumber">
-          0 Tweets</small>
+  <div class="page">
+
+    <!-- left side bar -->
+    <div class="left-container">
+      <div class="left-content">
+        <p class="container-title">You might like</p>
+
+
       </div>
     </div>
 
-    <div class="profilePhoto-container">
-      <!--big photo  -->
-      <div class="profilePhoto-big"></div>
-      <!-- circle photo-->
-      <div class="profilePhoto-circle"></div>
-    </div>
+    <!-- tweets and info -->
+    <div class="container">
 
-    <div class="profile-info">
-      <button class="btn" id="edit_profile">Edit profile</button>
-      <div class="info-content">
-        <h2 class="fullName">Emily Zugay</h2>
-        <p class="userName">@Emily_Zugay10</p>
-        <p class="joinDate"><i class="fa-solid fa-calendar-days"></i>Joined October 2021</p>
-        <div class="info-stat">
-          <p class="following"><span id="following-nb">920</span>Following</p>
-          <p class="followers"><span id="followers-nb">112</span>Followers</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="horizontal-bar">
-      <div class="content">
-        <p id="tweets_btn" class="bar-btn active">Tweets</p>
-        <p id="media_btn" class="bar-btn  ">Media</p>
-        <p id="liked_btn" class="bar-btn ">Likes</p>
-      </div>
-    </div>
-
-    <!-- tweet components  -->
-    <div id="tweet" class="tweets-container  ">
-      <div class="user-tweet">
-        <div class="profilePhoto-circle samll"></div>
-        <div class="tweet-info">
-          <h4 class="fullName">Emily Zugay</h4>
-          <span class="userName">@Emily_Zugay10</span>
-          <span class="tweet-date">October 2021</span>
-
-          <p class="tweet-text">A new version (v18.8.0) of
-            @nodejs
-            is out!
-            - Adds experimental runtime user-land snapshots
-            - npm@8.18.0 including the new `npm query` cmd
-            - and much more from our awesome collaborators!
-            ⬇️ Get it now:
-            $ nvm install 18.8.0</p>
-          <div class="nb-like">
-            <i class="fa-regular fa-heart"></i><span>498</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- tweet media components  -->
-    <div id="media_tweet" class="tweets-container d-none ">
-      <div class="user-tweet">
-        <div class="profilePhoto-circle samll"></div>
-        <div class="tweet-info">
-          <h4 class="fullName">Emily Zugay</h4>
-          <span class="userName">@Emily_Zugay10</span>
-          <span class="tweet-date">October 2021</span>
-          <p class="tweet-text">A new version (v18.8.0) of
-            @nodejs
-            is out!
-            - Adds experimental runtime user-land snapshots
-            - npm@8.18.0 including the new `npm query` cmd
-            - and much more from our awesome collaborators!
-            ⬇️ Get it now:
-            $ nvm install 18.8.0</p>
-
-          <img src="assets/FaWXiavVEAYYCjX.jpeg" class="tweet-media" alt=" tweet media ">
-          <div class="nb-like">
-            <i class="fa-regular fa-heart"></i><span>498</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <!--liked tweets      -->
-    <div id="liked_tweet" class="tweets-container d-none ">
-      <div class="user-tweet">
-        <img src="assets/photo-1438761681033-6461ffad8d80.jpeg" class="otherUserPhoto samll">
-        <div class="tweet-info">
-          <h4 class="fullName">Joey Arhar</h4>
-          <sap class="userName">@matteocollina</sap>
-          <span class="tweet-date">October 2019</span>
-          <p class="tweet-text">A new version (v18.8.0) of
-            I just discovered that baby owls sleep on their stomachs cause their heads are too heavy and I can’t stop
-            laughing</p>
-          <img src="assets/FbgvJBhUUAA9tgQ.jpeg" class="tweet-media" alt=" tweet media ">
-          <div class="nb-like">
-            <i class="fa-regular fa-heart"></i><span>498</span>
-          </div>
-        </div>
-        </img>
-      </div>
-    </div>
-
-    <div id="edit_container" class="edit-container  d-none ">
       <div class="header">
-        <div class="close" id="close">
-          <i class="fa-regular fa-circle-xmark fa-2x"></i>
+        <div class="icon">
+          <img src="assets/go_back .png" alt="go_back"> </div>
+        <div class="header-content">
+          <p class="fullName">
+            Emily Zugay
+          </p>
+          <small class="tweetsNumber">
+            0 Tweets</small>
         </div>
-        <span class="title">Edit profile</span>
-        <button class="btn-save">Save</button>
       </div>
-      <div class="profilePhoto-container ">
+
+      <div class="profilePhoto-container">
         <!--big photo  -->
-        <div class="profilePhoto-big change">
-          <input type="file" class="img-upload d-none" id="img-upload-big">
-          <label for="img-upload-big">
-            <i class="fa-solid fa-camera-retro"></i></label>
-        </div>
+        <div class="profilePhoto-big"></div>
         <!-- circle photo-->
-        <div class="profilePhoto-circle change">
-          <input type="file" class="img-upload d-none" id="img-upload-small">
-          <label for="img-upload-small">
-            <i class="fa-solid fa-camera-retro"></i></label>
+        <div class="profilePhoto-circle"></div>
+      </div>
+
+      <div class="profile-info">
+        <button class="btn" id="edit_profile">Edit profile</button>
+        <div class="info-content">
+          <h2 class="fullName">Emily Zugay</h2>
+          <p class="userName">@Emily_Zugay10</p>
+          <p class="joinDate"><i class="fa-solid fa-calendar-days"></i>Joined October 2021</p>
+          <div class="info-stat">
+            <p class="following"><span id="following-nb">920</span>Following</p>
+            <p class="followers"><span id="followers-nb">112</span>Followers</p>
+          </div>
         </div>
       </div>
-      <div class="input-edit">
-        <form>
-          <input type="text" placeholder="Name" id="fullName" name="fullName" class="input" required>
-          <input type="number" placeholder="Phone" id="phone" name="phone" class="input" required>
-          <textarea id="bio" class="bio" cols="30" placeholder="Bio"></textarea>
-          <div class="date">
-            <p><b>Date of birth</b></p>
-            <select class="input month" id="month" name="month" required>
-              <option value='' selected disabled>Month</option>
-              <option value='1'>Janaury</option>
-              <option value='2'>February</option>
-              <option value='3'>March</option>
-              <option value='4'>April</option>
-              <option value='5'>May</option>
-              <option value='6'>June</option>
-              <option value='7'>July</option>
-              <option value='8'>August</option>
-              <option value='9'>September</option>
-              <option value='10'>October</option>
-              <option value='11'>November</option>
-              <option value='12'>December</option>
-            </select>
-            <select class="input day" id="day" name="day" required>
-              <option disabled selected value="">Day</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
-              <option value="11">11</option>
-              <option value="12">12</option>
-              <option value="13">13</option>
-              <option value="14">14</option>
-              <option value="15">15</option>
-              <option value="16">16</option>
-              <option value="17">17</option>
-              <option value="18">18</option>
-              <option value="19">19</option>
-              <option value="20">20</option>
-              <option value="21">21</option>
-              <option value="22">22</option>
-              <option value="23">23</option>
-              <option value="24">24</option>
-              <option value="25">25</option>
-              <option value="26">26</option>
-              <option value="27">27</option>
-              <option value="28">28</option>
-              <option value="29">29</option>
-              <option value="30">30</option>
-              <option value="31">31</option>
-            </select>
-            <select class="input year" id="year" name="year" required>
-              <option value='' selected disabled>Year</option>
-              <option value="1998">1998</option>
-              <option value="1999">1999</option>
-              <option value="2000">2000</option>
-              <option value="2001">2001</option>
-              <option value="2002">2002</option>
-              <option value="2003">2003</option>
+
+      <div class="horizontal-bar">
+        <div class="content">
+          <p id="tweets_btn" class="bar-btn active">Tweets</p>
+          <p id="media_btn" class="bar-btn  ">Media</p>
+          <p id="liked_btn" class="bar-btn ">Likes</p>
+        </div>
+      </div>
+
+      <!-- tweet components  -->
+      <div id="tweet" class="tweets-container  ">
+        <div class="user-tweet">
+          <div class="profilePhoto-circle samll"></div>
+          <div class="tweet-info">
+            <h4 class="fullName">Emily Zugay</h4>
+            <span class="userName">@Emily_Zugay10</span>
+            <span class="tweet-date">October 2021</span>
+
+            <p class="tweet-text">A new version (v18.8.0) of
+              @nodejs
+              is out!
+              - Adds experimental runtime user-land snapshots
+              - npm@8.18.0 including the new `npm query` cmd
+              - and much more from our awesome collaborators!
+              ⬇️ Get it now:
+              $ nvm install 18.8.0</p>
+            <div class="nb-like">
+              <i class="fa-regular fa-heart"></i><span>498</span>
+            </div>
           </div>
-        </form>
+        </div>
+      </div>
+
+      <!-- tweet media components  -->
+      <div id="media_tweet" class="tweets-container d-none ">
+        <div class="user-tweet">
+          <div class="profilePhoto-circle samll"></div>
+          <div class="tweet-info">
+            <h4 class="fullName">Emily Zugay</h4>
+            <span class="userName">@Emily_Zugay10</span>
+            <span class="tweet-date">October 2021</span>
+            <p class="tweet-text">A new version (v18.8.0) of
+              @nodejs
+              is out!
+              - Adds experimental runtime user-land snapshots
+              - npm@8.18.0 including the new `npm query` cmd
+              - and much more from our awesome collaborators!
+              ⬇️ Get it now:
+              $ nvm install 18.8.0</p>
+
+            <img src="assets/FaWXiavVEAYYCjX.jpeg" class="tweet-media" alt=" tweet media ">
+            <div class="nb-like">
+              <i class="fa-regular fa-heart"></i><span>498</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--liked tweets      -->
+      <div id="liked_tweet" class="tweets-container d-none ">
+        <div class="user-tweet">
+          <img src="assets/photo-1438761681033-6461ffad8d80.jpeg" class="otherUserPhoto samll">
+          <div class="tweet-info">
+            <h4 class="fullName">Joey Arhar</h4>
+            <sap class="userName">@matteocollina</sap>
+            <span class="tweet-date">October 2019</span>
+            <p class="tweet-text">A new version (v18.8.0) of
+              I just discovered that baby owls sleep on their stomachs cause their heads are too heavy and I can’t stop
+              laughing</p>
+            <img src="assets/FbgvJBhUUAA9tgQ.jpeg" class="tweet-media" alt=" tweet media ">
+            <div class="nb-like">
+              <i class="fa-regular fa-heart"></i><span>498</span>
+            </div>
+          </div>
+          </img>
+        </div>
+      </div>
+
+      <div id="edit_container" class="edit-container  d-none ">
+        <div class="header">
+          <div class="close" id="close">
+            <i class="fa-regular fa-circle-xmark fa-2x"></i>
+          </div>
+          <span class="title">Edit profile</span>
+          <button class="btn-save">Save</button>
+        </div>
+        <div class="profilePhoto-container ">
+          <!--big photo  -->
+          <div class="profilePhoto-big change">
+            <input type="file" class="img-upload d-none" id="img-upload-big">
+            <label for="img-upload-big">
+              <i class="fa-solid fa-camera-retro"></i></label>
+          </div>
+          <!-- circle photo-->
+          <div class="profilePhoto-circle change">
+            <input type="file" class="img-upload d-none" id="img-upload-small">
+            <label for="img-upload-small">
+              <i class="fa-solid fa-camera-retro"></i></label>
+          </div>
+        </div>
+        <div class="input-edit">
+          <form>
+            <input type="text" placeholder="Name" id="fullName" name="fullName" class="input" required>
+            <input type="number" placeholder="Phone" id="phone" name="phone" class="input" required>
+            <textarea id="bio" class="bio" cols="30" placeholder="Bio"></textarea>
+            <div class="date">
+              <p><b>Date of birth</b></p>
+              <select class="input month" id="month" name="month" required>
+                <option value='' selected disabled>Month</option>
+                <option value='1'>Janaury</option>
+                <option value='2'>February</option>
+                <option value='3'>March</option>
+                <option value='4'>April</option>
+                <option value='5'>May</option>
+                <option value='6'>June</option>
+                <option value='7'>July</option>
+                <option value='8'>August</option>
+                <option value='9'>September</option>
+                <option value='10'>October</option>
+                <option value='11'>November</option>
+                <option value='12'>December</option>
+              </select>
+              <select class="input day" id="day" name="day" required>
+                <option disabled selected value="">Day</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+                <option value="31">31</option>
+              </select>
+              <select class="input year" id="year" name="year" required>
+                <option value='' selected disabled>Year</option>
+                <option value="1998">1998</option>
+                <option value="1999">1999</option>
+                <option value="2000">2000</option>
+                <option value="2001">2001</option>
+                <option value="2002">2002</option>
+                <option value="2003">2003</option>
+              </select>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
-    <script src="scripts/index.js"></script>
+
+    <!-- right -->
+    <!-- pepole You might like -->
+    <div class="right-container">
+      <div class="right-content">
+        <p class="container-title">You might like</p>
+        <div class="user-tweet might-like">
+          <img src="assets/photo-1438761681033-6461ffad8d80.jpeg" class="otherUserPhoto samll xsmall">
+          <div class="tweet-info">
+            <h4 class="fullName">Emily Zugay</h4>
+            <span class="userName">@Emily_Zugay10</span>
+          </div>
+          <button class="btn-follow">Follow</button>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+  <script src="scripts/index.js"></script>
 </body>
 
 </html>
