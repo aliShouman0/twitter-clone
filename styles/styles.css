@@ -63,7 +63,7 @@ body {
 }
 
 .header .tweetsNumber {
-  font-size: 1vw;
+  font-size: 1.2vw;
   font-weight: lighter;
   color: rgba(174, 172, 172, 1);
   margin-left: 1rem;
@@ -76,7 +76,7 @@ body {
 }
 .profilePhoto-container .profilePhoto-big {
   background: url("../assets/profile.jpg");
-  height: 20vh;
+  height: 10rem;
   width: 100%;
   background-size: cover;
   background-repeat: no-repeat;
@@ -94,7 +94,7 @@ body {
   border-radius: 100%;
   border: 3px solid black;
   position: absolute;
-  top: 50%;
+  top: 7rem;
   left: 2%;
 }
 
@@ -196,11 +196,12 @@ body {
   position: relative;
   height: 3.8rem;
   width: 3.8rem;
+  top: 0;
   left: 2%;
 }
 
 .tweet-info {
-  width: 80%;
+  width: 75%;
   margin: 0 1rem;
   letter-spacing: 0.8px;
 }
@@ -263,7 +264,10 @@ body {
   width: 35rem;
   background-color: black;
   top: 2rem;
-  left: 30%;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 8px;
   color: white;
   transition: all 0.5s ease-in-out;
@@ -395,4 +399,57 @@ input[type="number"] {
 .edit-container .bio {
   height: 80px;
   padding-top: 10px;
+}
+
+@media only screen and (max-width: 980px) {
+  .profile-info .btn {
+    font-size: 1.5vw;
+  }
+
+  .info-content .userName,
+  .joinDate,
+  .info-content {
+    font-size: 2vw;
+  }
+
+  .content .bar-btn {
+    font-size: 1.8vw;
+  }
+
+  .tweet-info .fullName {
+    font-size: 2vw;
+  }
+
+  .tweet-info .userName,
+  .tweet-date {
+    font-size: 1.5vw;
+  }
+
+  .tweet-text {
+    font-size: 2vw;
+  }
+
+  .profilePhoto-circle.samll {
+    height: 5rem;
+    width: 5rem;
+  }
+
+  .edit-container {
+    height: 70%;
+    width: 80vw;
+  }
+
+  .edit-container .input,
+  .edit-container .bio {
+    width: 45vw;
+    height: 80px;
+    margin: 15px 5px;
+  }
+  .year {
+    margin-bottom: 22rem;
+  }
+
+  .edit-container .date > p {
+    margin-left: 20%;
+  }
 }
