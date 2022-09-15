@@ -2,181 +2,164 @@
 <html lang="en">
 
 <head>
-  <title>Sign up for Twitter / Twitter</title>
-  <link rel="icon" href="images/twitter.ico">
-  <link rel="stylesheet" href="styles/styles.css">
+    <title>Sign up for Twitter / Twitter</title>
+    <link rel="icon" href="images/twitter.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles/styles.css">
 </head>
 
 <body>
-  <div class="container">
-    <!-- chooce sigup method email google or apple -->
-    <section id="join-form" class="join-style center  ">
-      <!--click here must go to main page/login page -->
-      <button class="close"><a href="#">X</a></button>
-      <div class="title">
-        <h2>Join Twitter today</h2>
-      </div>
-      <div class="box">
-        <!--button disabled  just for design  -->
-        <button class="btn  sign-up-btn  " disabled>
-          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" class="LgbsSe-Bz112c">
-            <g>
-              <path fill="#EA4335"
-                d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z">
-              </path>
-              <path fill="#4285F4"
-                d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z">
-              </path>
-              <path fill="#FBBC05"
-                d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z">
-              </path>
-              <path fill="#34A853"
-                d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z">
-              </path>
-              <path fill="none" d="M0 0h48v48H0z"></path>
-            </g>
-          </svg>
-          Sign up with Google
-        </button>
-        <button class="btn  sign-up-btn  " disabled>
-          <svg viewBox="0 0 24 24" aria-hidden="true"
-            class="r-4qtqp9 r-yyyyoo r-z80fyv r-1d4mawv r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-19wmn03"
-            style="color: rgb(15, 20, 25);">
-            <g>
-              <path
-                d="M16.365 1.43c0 1.14-.493 2.27-1.177 3.08-.744.9-1.99 1.57-2.987 1.57-.12 0-.23-.02-.3-.03-.01-.06-.04-.22-.04-.39 0-1.15.572-2.27 1.206-2.98.804-.94 2.142-1.64 3.248-1.68.03.13.05.28.05.43zm4.565 15.71c-.03.07-.463 1.58-1.518 3.12-.945 1.34-1.94 2.71-3.43 2.71-1.517 0-1.9-.88-3.63-.88-1.698 0-2.302.91-3.67.91-1.377 0-2.332-1.26-3.428-2.8-1.287-1.82-2.323-4.63-2.323-7.28 0-4.28 2.797-6.55 5.552-6.55 1.448 0 2.675.95 3.6.95.865 0 2.222-1.01 3.902-1.01.613 0 2.886.06 4.374 2.19-.13.09-2.383 1.37-2.383 4.19 0 3.26 2.854 4.42 2.955 4.45z">
-              </path>
-            </g>
-          </svg>
-          Sign up with Apple
-        </button>
-        <!-- horizontal line  -->
-        <div>
-          <hr>
-          <span>or</span>
-          <hr>
-        </div>
-        <!--Sign up will open like a popup from   -->
-        <button class="btn  sign-up-btn" id="sign_up_email">
-          Sign up with phone or Email
-        </button>
-        <!-- Privacy Policy text and login link page -->
-        <div class="policy">
-          <span>
-            By signing up, you agree to the <a href="">Terms of Service</a> and <a href="">Privacy Policy</a> ,
-            including Cookie Use. <br><br><br>
-            Have an account already? <a href="">Log in</a>
-          </span>
-        </div>
-      </div>
-    </section>
-
-    <!--popup form to Create  account  -->
-    <section id="signup-form" class="popup-signup d-none ">
-      <div class="join-style left">
-        <!--click here must close the popup form -->
-        <button class="close" id="close_create">X</button>
-        <span class="step">Step 1 of 2</span>
-        <div class="card">
-          <div class="title">
-            <h2>Create your account</h2>
-          </div>
-          <!-- input form collection of data -->
-          <form  action="" method="post">
-            <input type="text" placeholder="Name" id="fullName" name="fullName" class="input" required>
-            <input type="number" placeholder="Phone" id="phone" name="phone" class="input" required>
-            <p class="use-email"><a href="#">Use email instead</a></p>
-            <div class="date">
-              <p><b>Date of birth</b></p>
-              <span>This will not be shown publicly. Confirm your own age, even if this account is for a business, apet,
-                or something else.
-              </span><br>
-              <select class="input month" id="month" name="month" required>
-                <option value='' selected disabled>Month</option>
-                <option value='1'>Janaury</option>
-                <option value='2'>February</option>
-                <option value='3'>March</option>
-                <option value='4'>April</option>
-                <option value='5'>May</option>
-                <option value='6'>June</option>
-                <option value='7'>July</option>
-                <option value='8'>August</option>
-                <option value='9'>September</option>
-                <option value='10'>October</option>
-                <option value='11'>November</option>
-                <option value='12'>December</option>
-              </select>
-              <select class="input day" id="day" name="day" required>
-                <option disabled selected value="">Day</option>
-                <option value="1" class="r-kemksi">1</option>
-                <option value="2" class="r-kemksi">2</option>
-                <option value="3" class="r-kemksi">3</option>
-                <option value="4" class="r-kemksi">4</option>
-                <option value="5" class="r-kemksi">5</option>
-                <option value="6" class="r-kemksi">6</option>
-                <option value="7" class="r-kemksi">7</option>
-                <option value="8" class="r-kemksi">8</option>
-                <option value="9" class="r-kemksi">9</option>
-                <option value="10" class="r-kemksi">10</option>
-                <option value="11" class="r-kemksi">11</option>
-                <option value="12" class="r-kemksi">12</option>
-                <option value="13" class="r-kemksi">13</option>
-                <option value="14" class="r-kemksi">14</option>
-                <option value="15" class="r-kemksi">15</option>
-                <option value="16" class="r-kemksi">16</option>
-                <option value="17" class="r-kemksi">17</option>
-                <option value="18" class="r-kemksi">18</option>
-                <option value="19" class="r-kemksi">19</option>
-                <option value="20" class="r-kemksi">20</option>
-                <option value="21" class="r-kemksi">21</option>
-                <option value="22" class="r-kemksi">22</option>
-                <option value="23" class="r-kemksi">23</option>
-                <option value="24" class="r-kemksi">24</option>
-                <option value="25" class="r-kemksi">25</option>
-                <option value="26" class="r-kemksi">26</option>
-                <option value="27" class="r-kemksi">27</option>
-                <option value="28" class="r-kemksi">28</option>
-                <option value="29" class="r-kemksi">29</option>
-                <option value="30" class="r-kemksi">30</option>
-                <option value="31" class="r-kemksi">31</option>
-              </select>
-              <select class="input year" id="year" name="year" required>
-                <option value='' selected disabled>Year</option>
-                <option value="1998">1998</option>
-                <option value="1999">1999</option>
-                <option value="2000">2000</option>
-                <option value="2001">2001</option>
-                <option value="2002">2002</option>
-                <option value="2003">2003</option>
-                <option value="2004">2004</option>
-                <option value="2005">2005</option>
-                <option value="2006">2006</option>
-                <option value="2007">2007</option>
-                <option value="2008">2008</option>
-                <option value="2009">2009</option>
-                <option value="2010">2010</option>
-                <option value="2011">2011</option>
-                <option value="2012">2012</option>
-                <option value="2013">2013</option>
-                <option value="2014">2014</option>
-                <option value="2015">2015</option>
-                <option value="2016">2016</option>
-                <option value="2017">2017</option>
-                <option value="2018">2018</option>
-                <option value="2019">2019</option>
-                <option value="2020">2020</option>
-                <option value="2021">2021</option>
-                <option value="2022">2022</option>
-              </select>
+    <div class="container">
+        <!-- chooce sigup method email google or apple -->
+        <section id="join-form" class="join-style center  ">
+            <!--click here must go to main page/login page -->
+            <button class="close"><a href="#">X</a></button>
+            <div class="title">
+                <h2>Join Twitter today</h2>
             </div>
-            <input type="submit" class="btn btn-submit" value="Sign up">
-          </form>
-        </div>
-      </div>
-    </section>
-  </div>
+            <div class="box">
+                <!--button disabled  just for design  -->
+                <button class="btn  sign-up-btn  " disabled>
+                    <i class="fa-brands fa-google"></i>
+                    Sign up with Google
+                </button>
+                <button class="btn  sign-up-btn  " disabled>
+                    <i class="fa-brands fa-apple"></i>
+                    Sign up with Apple
+                </button>
+                <!-- horizontal line  -->
+                <div>
+                    <hr>
+                    <span>or</span>
+                    <hr>
+                </div>
+                <!--Sign up will open like a popup from   -->
+                <button class="btn  sign-up-btn" id="sign_up_email">
+                    Sign up with Email
+                </button>
+                <!-- Privacy Policy text and login link page -->
+                <div class="policy">
+                    <span>
+                        By signing up, you agree to the <a href="">Terms of Service</a> and <a href="">Privacy
+                            Policy</a> ,
+                        including Cookie Use. <br><br><br>
+                        Have an account already? <a href="">Log in</a>
+                    </span>
+                </div>
+            </div>
+        </section>
 
-  <script src="scripts/index.js"></script>
+        <!--popup form to Create  account  -->
+        <section id="signup-form" class="popup-signup d-none ">
+            <div class="join-style left">
+                <!--click here must close the popup form -->
+                <button class="close" id="close_create">X</button>
+                <span class="step">Step 1 of 2</span>
+                <div class="card">
+                    <div class="title">
+                        <h2>Create your account</h2>
+                    </div>
+                    <!-- input form collection of data -->
+                    <form>
+                        <input type="text" placeholder="Name" id="fullName" class="input" required>
+                        <input type="email" placeholder="Email" id="email" class="input" required>
+                        <div class="date">
+                            <p><b>Date of birth</b></p>
+                            <span>This will not be shown publicly. Confirm your own age, even if this account is for a
+                                business, apet,
+                                or something else.
+                            </span>
+                            <div class="select">
+                                <select class="input month" id="month" name="month" required>
+                                    <option value='' selected disabled>Month</option>
+                                    <option value='1'>Janaury</option>
+                                    <option value='2'>February</option>
+                                    <option value='3'>March</option>
+                                    <option value='4'>April</option>
+                                    <option value='5'>May</option>
+                                    <option value='6'>June</option>
+                                    <option value='7'>July</option>
+                                    <option value='8'>August</option>
+                                    <option value='9'>September</option>
+                                    <option value='10'>October</option>
+                                    <option value='11'>November</option>
+                                    <option value='12'>December</option>
+                                </select>
+                                <select class="input day" id="day" name="day" required>
+                                    <option disabled selected value="">Day</option>
+                                    <option value="1" class="r-kemksi">1</option>
+                                    <option value="2" class="r-kemksi">2</option>
+                                    <option value="3" class="r-kemksi">3</option>
+                                    <option value="4" class="r-kemksi">4</option>
+                                    <option value="5" class="r-kemksi">5</option>
+                                    <option value="6" class="r-kemksi">6</option>
+                                    <option value="7" class="r-kemksi">7</option>
+                                    <option value="8" class="r-kemksi">8</option>
+                                    <option value="9" class="r-kemksi">9</option>
+                                    <option value="10" class="r-kemksi">10</option>
+                                    <option value="11" class="r-kemksi">11</option>
+                                    <option value="12" class="r-kemksi">12</option>
+                                    <option value="13" class="r-kemksi">13</option>
+                                    <option value="14" class="r-kemksi">14</option>
+                                    <option value="15" class="r-kemksi">15</option>
+                                    <option value="16" class="r-kemksi">16</option>
+                                    <option value="17" class="r-kemksi">17</option>
+                                    <option value="18" class="r-kemksi">18</option>
+                                    <option value="19" class="r-kemksi">19</option>
+                                    <option value="20" class="r-kemksi">20</option>
+                                    <option value="21" class="r-kemksi">21</option>
+                                    <option value="22" class="r-kemksi">22</option>
+                                    <option value="23" class="r-kemksi">23</option>
+                                    <option value="24" class="r-kemksi">24</option>
+                                    <option value="25" class="r-kemksi">25</option>
+                                    <option value="26" class="r-kemksi">26</option>
+                                    <option value="27" class="r-kemksi">27</option>
+                                    <option value="28" class="r-kemksi">28</option>
+                                    <option value="29" class="r-kemksi">29</option>
+                                    <option value="30" class="r-kemksi">30</option>
+                                    <option value="31" class="r-kemksi">31</option>
+                                </select>
+                                <select class="input year" id="year" name="year" required>
+                                    <option value='' selected disabled>Year</option>
+                                    <option value="1998">1998</option>
+                                    <option value="1999">1999</option>
+                                    <option value="2000">2000</option>
+                                    <option value="2001">2001</option>
+                                    <option value="2002">2002</option>
+                                    <option value="2003">2003</option>
+                                    <option value="2004">2004</option>
+                                    <option value="2005">2005</option>
+                                    <option value="2006">2006</option>
+                                    <option value="2007">2007</option>
+                                    <option value="2008">2008</option>
+                                    <option value="2009">2009</option>
+                                    <option value="2010">2010</option>
+                                    <option value="2011">2011</option>
+                                    <option value="2012">2012</option>
+                                    <option value="2013">2013</option>
+                                    <option value="2014">2014</option>
+                                    <option value="2015">2015</option>
+                                    <option value="2016">2016</option>
+                                    <option value="2017">2017</option>
+                                    <option value="2018">2018</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2020">2020</option>
+                                    <option value="2021">2021</option>
+                                    <option value="2022">2022</option>
+                                </select>
+                            </div>
+                        </div>
+                        <input type="submit" class="btn btn-submit" value="Sign up">
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="scripts/index.js"></script>
 </body>
 
 </html>

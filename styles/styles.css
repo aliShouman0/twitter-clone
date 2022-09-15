@@ -2,12 +2,12 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: monospace, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-family: sans-serif;
 }
 
 body {
   background-color: #24383e;
-  height: 100vh;
+  height: auto;
   width: 100vw;
 }
 
@@ -23,7 +23,7 @@ body {
 .join-style {
   background-color: black;
   width: 40vw;
-  height: 78vh;
+  height: auto;
   border-radius: 30px;
   padding: 2rem;
   position: relative;
@@ -70,7 +70,7 @@ body {
 }
 
 .btn {
-  width: 70%;
+  width: 80%;
   height: 55px;
   font-size: 1rem;
   font-weight: bolder;
@@ -98,11 +98,8 @@ button[disabled] {
   margin-top: 1.3rem;
 }
 
-/* the google and apple logo */
-svg {
-  margin-right: 0.9rem;
-  height: 20px;
-  width: 20px;
+.sign-up-btn i {
+  margin: 0 1rem;
 }
 
 hr {
@@ -156,7 +153,7 @@ hr {
 }
 
 .input {
-  width: 35vw;
+  width: 31vw;
   height: 60px;
   border-radius: 5px;
   background-color: black;
@@ -172,32 +169,6 @@ hr {
   border: solid 2px #199bf0;
 }
 
-.use-email {
-  text-align: right;
-}
-
-.use-email > a {
-  text-decoration: none;
-  color: #199bf0;
-  font-size: 0.8rem;
-}
-
-.use-email > a:hover {
-  text-decoration: underline;
-}
-
-/* to remove arrow from input number */
-/* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-/* Firefox */
-input[type="number"] {
-  -moz-appearance: textfield;
-}
-
 .date {
   color: #8c8c8c;
   margin-top: 0.7rem;
@@ -210,18 +181,29 @@ input[type="number"] {
   margin-bottom: 3px;
   letter-spacing: 0px;
 }
+
 .date span {
   letter-spacing: 0px;
+}
+
+.select {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .month {
   width: 45%;
   margin-top: 1.2rem;
+  margin-right: 1px;
 }
+
 .day {
   width: 20%;
   margin-top: 1.2rem;
+  margin-right: 1px;
 }
+
 .year {
   width: 30%;
   margin-top: 1.2rem;
@@ -244,25 +226,11 @@ input[type="number"] {
   }
 
   .join-style {
-    /* margin-top: 5rem;
-    width: 85vw;
-    height: 85vh; */
-    width: 100%;
-    height: 100%;
+    width: auto;
+    height: auto;
     background-color: transparent;
     overflow: hidden;
   }
-
-  /* 
-.join-style {
-  background-color: black;
-  width: 40vw;
-  height: 78vh;
-  border-radius: 30px;
-  padding: 2rem;
-  position: relative;
-  transition: all 0.3s ease-in-out;
-} */
 
   .title {
     padding: 0.8rem;
@@ -280,7 +248,6 @@ input[type="number"] {
     font-size: 2rem;
     margin: 2rem auto;
     padding: 1.2rem;
-    
   }
   .sign-up-btn {
     display: flex;
@@ -289,6 +256,9 @@ input[type="number"] {
     margin: auto;
     margin-top: 5rem;
   }
+
+  .select {
+    display: block;}
 
   .policy {
     font-size: 1.8vw;
@@ -300,19 +270,16 @@ input[type="number"] {
 
   .month,
   .day,
-  .year {
-    width: 30%; 
-  }
-  .use-email{
-    text-align: center;
+  .year,
+  .input {
+    width: 60%;
   }
 
-  .date     {    
+  .date {
     text-align: center;
     margin: auto;
-    max-width: 80%;
   }
-    /* .box{
-    
-  } */
+
+   
 }
+
