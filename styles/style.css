@@ -1,0 +1,355 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main-page{
+    height: 100%;
+}
+
+.hero{
+    display: flex;
+    opacity: 1;
+}
+
+.picture{
+    width: 53.5%;
+}
+
+.hero-image{
+    width: 100%;
+    height: 100%;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    width: 46.5%;
+    height: 100%;
+    background-color: #000000;
+}
+
+.item{
+    width: 100%;
+    padding: 2% 5%;
+}
+
+.logo{
+    margin: 4.5% 2%;
+    color: #d6d9db;
+    font-size: 42px;
+}
+
+.item-title{
+    margin: 3% 2%; 
+    color: #e7e9ea;
+    font-size: 70px;
+    font-family: sans-serif;
+}
+
+.item-subtitle-join{
+    margin: 1% 2%;
+    color: white;
+    font-size: 35px;
+    font-family: sans-serif;
+}
+
+.hero-button{
+    margin: 4% 0 0 2%;
+    padding: 2% 12%;
+    border: none;
+    border-radius: 50px;
+    background-color: #1d9bf0;
+    color: white;
+    font-size: 16px;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+.hero-button:hover{
+    cursor: pointer;
+    background-color: #1a8cd8;
+    transition: all 1s ease-in-out;
+}
+
+.hero-button a{
+    color: white;
+    text-decoration: none;
+}
+
+h6{
+    padding: 1% 3%;
+    color: #98949d;
+    font-family: sans-serif;
+}
+
+.foot a{
+    color: #1d9bf2;
+    text-decoration: none;
+}
+
+.foot a:hover{
+    border-bottom: 1px solid #1d9bf2;
+}
+
+.item-subtitle-account{
+    margin-top: 5%;
+    font-size: 20px;
+    font-family: sans-serif;
+}
+
+.signin-button{
+    margin: 3% 3% 17% 3%; 
+    padding: 2% 19%;
+    border-radius: 50px;
+    border: 1px solid #cfd9de;
+    background-color: transparent;
+    color: #1d9bf0;
+    font-size: 16px;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+.signin-button:hover{
+    cursor: pointer;
+    background-color: #031019;
+    transition: all 0.2s ease-in-out;
+}
+
+.signin-button a{
+    padding: 100% 0;
+    text-decoration: none;
+    color: white;
+}
+
+.header{
+    display: flex;
+}
+
+.icon{
+    flex-basis: 45%;
+}
+
+.logo{
+    flex-basis: 55%;
+}
+
+.close-button{
+    float: left;
+    width: 40px;
+    height: 40px;
+    margin: 1% 3%;
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 20px;
+    font-weight: 100;
+}
+
+.close-button:hover{
+    cursor: pointer;
+    background-color: #181818;
+    border-radius: 60px;
+    transition: all 1s ease-in-out;
+}
+
+.close-button a{
+    color: white;
+}
+
+.twitter-logo{
+    float: left;
+    width: 45px;
+    height: 40px;
+    margin-top: 8px;
+}
+
+.signin-title{
+    margin-top: 1%;
+    color: white;
+    font-family: sans-serif;
+}
+
+.signup-title{
+    margin: 1% 0 3% 0;
+    color: white;
+    font-family: sans-serif;
+}
+
+
+.input{
+    width: 45%;
+    margin-top: 50px;
+    padding: 20px 10px;
+    border-radius: 5px;
+    border: 1px solid #cfd9de;
+    background-color: transparent;
+    color: white;
+    font-size: 16px;
+    outline: none;
+}
+
+.signup-input{
+    width: 70%;
+    margin-top: 3%;
+}
+
+.password{
+    margin-top: 20px
+}
+
+::placeholder{
+    font-size: 16px;
+}
+
+.input:focus{
+    border: 1px solid #1d9bf0;
+}
+
+.popup-button{
+    margin-top: 25px;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.signup-button{
+    margin-bottom: 4%;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 2% 20%;
+    background-color: white;
+    color: #000000;
+}
+
+.signup-button:hover{
+    cursor: pointer;
+    background-color: #d7dbdc;
+    transition: all 1s ease-in-out;
+}
+
+.login{
+    padding: 2% 20%;
+    background-color: white;
+    color: #000000;
+}
+
+.login:hover{
+    cursor: pointer;
+    background-color: #d7dbdc;
+    transition: all 1s ease-in-out;
+}
+
+.forgot{
+    padding: 2% 13%;
+    border: 1px solid #cfd9de;
+    background-color: transparent;
+    color: white;
+}
+
+.forgot:hover{
+    cursor: pointer;
+    background-color: #191919;
+    transition: all 1s ease-in-out;
+}
+
+.foot{
+    margin-top: 50px;
+}
+
+h4{
+    margin-bottom: 10%;
+    color: #536471;
+    font-weight: lighter;
+    font-family: sans-serif;
+}
+
+span{
+    color: #1d9bf0;
+}
+
+span:hover{
+    cursor: pointer;
+    border-bottom: 1px solid #1d9bf0; 
+}
+
+.login-popup{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    width: 45%;
+    height: auto;
+    left: 28%;
+    bottom: 6%;
+    border-radius: 20px;
+    background-color: #000000;
+    transition: all 1s ease-in-out;
+}
+
+.logo-popup{
+    text-align: start;
+    font-size: 32px;
+}
+
+.homepage-footer{
+    width: 100%;
+    background-color: #000000;
+}
+
+.homepage-footer-elements{
+    display: flex;
+    justify-content: space-between;
+    padding: 2% 3% 0 3%;
+    font-size: 12px;
+    font-family: sans-serif;    
+}
+
+.homepage-footer-elements a{
+    color: grey;
+    text-decoration: none;
+}
+
+.homepage-footer-elements a:hover{
+    border-bottom: 1px solid grey;
+}
+
+.privacy{
+    justify-content: center;
+    padding: 1% 2% 2% 2%;
+}
+
+.disable-main-page{
+    opacity: 0.8;
+    pointer-events: none;
+    user-select: none;
+}
+
+.select {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 71%;
+    padding: 3% 0;
+}
+
+.month{
+    background-color: #000000;
+    width: 78%;
+    margin: 1.2rem 0.5%;
+}
+  
+.day{
+    background-color: #000000;
+    width: 41%;
+    margin: 1.2rem 0.5%;
+}
+  
+.year{
+    background-color: #000000;
+    width: 41%;
+    margin: 1.2rem 0.5%;
+}
+  
+  
