@@ -136,6 +136,7 @@
         </div>
       </div>
 
+      <!--edit profile  -->
       <div id="edit_container" class="edit-container  d-none ">
         <div class="header">
           <div class="close" id="close">
@@ -160,9 +161,12 @@
         </div>
         <div class="input-edit">
           <form>
-            <input type="text" placeholder="Name" id="fullName" name="fullName" class="input" required>
-            <input type="number" placeholder="Phone" id="phone" name="phone" class="input" required>
+            <input type="text" placeholder="Name" id="fullName" class="input" required>
+            <input type="number" placeholder="Phone" id="phone" class="input d-none">
             <textarea id="bio" class="bio" cols="30" placeholder="Bio"></textarea>
+            <input type="password" placeholder="password" id="password" class="input">
+            <input type="password" placeholder="Confirm password" id="confirm_password" class="input  ">
+            
             <div class="date">
               <p><b>Date of birth</b></p>
               <select class="input month" id="month" name="month" required>
