@@ -17,11 +17,47 @@
 
     <!-- left side bar -->
     <div class="left-container">
-      <div class="left-content">
-        <p class="container-title">You might like</p>
-
-
+      <!-- <p class="container-title">You might like</p> -->
+      <div class="links">
+        <div class="links-item">
+          <a href="">
+            <span><i class="fa-brands fa-twitter"></i></span>
+          </a>
+          <a href="">
+            <i class="fa fa-home"></i>
+            <span class="info">Home</span>
+          </a>
+          <a href="">
+            <i class="fa-regular fa-user"></i>
+            <span class="info">Profile</span>
+          </a>
+          <a href="">
+            <i class="fa fa-ellipsis"></i>
+            <span class="info">More</span>
+          </a>
+          <button class="tweet-button" id="tweet-but">Tweet</button>
+        </div>
+        <div class="logout-popup" id="logout">
+          <button class="logout-button">Logout <p class="currentUserName">@Emily_Zugay10</p>  </button>
+        </div>
+        <div class="user-logout">
+          <div class="logout" id="popup">
+            <a href="">
+              <!-- circle photo-->
+              
+              <div class="logout-image userProfilePhoto"></div>
+              <!-- <img src="assets/user.jpg" alt="user-profile" class="logout-image"> -->
+              <div class="user-details">
+                <span class="logout-name currentUserFullName">Emily Zugay</span>
+                <p class="logout-user currentUserName">@Emily_Zugay10</p>
+              </div>
+            </a>
+          </div>
+        </div>
       </div>
+
+
+
     </div>
 
     <!-- tweets and info -->
@@ -51,7 +87,8 @@
         <div class="info-content">
           <h2 class="fullName currentUserFullName">Emily Zugay</h2>
           <p class="userName currentUserName ">@Emily_Zugay10</p>
-          <p class="joinDate"><i class="fa-solid fa-calendar-days"></i>Joined <span id="joinDate">October 2021</span> </p>
+          <p class="joinDate"><i class="fa-solid fa-calendar-days"></i>Joined <span id="joinDate">October 2021</span>
+          </p>
           <div class="info-stat">
             <p class="following"><span id="following-nb">920</span>Following</p>
             <p class="followers"><span id="followers-nb">112</span>Followers</p>
