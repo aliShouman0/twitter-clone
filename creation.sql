@@ -11,6 +11,7 @@ CREATE TABLE IF NOT EXISTS `twitterdb`.`users` (
   `user_name` VARCHAR(45) NOT NULL,
   `email` VARCHAR(45) NOT NULL,
   `profile_photo` VARCHAR(255) NULL,
+  `profile_photo_banner` VARCHAR(255) NULL,
   `password` VARCHAR(255) NOT NULL,
   `birth_day` VARCHAR(255) NOT NULL,
   `join_date`  VARCHAR(255) NOT NULL,

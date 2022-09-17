@@ -21,7 +21,6 @@ if (
     $bio = $_POST["bio"];
   }
   if (isset($_POST["profile_photo"])) {
-    $fileName = $_POST["fileName"];
     $code64 = explode(',', $_POST["profile_photo"]);
     $img = base64_decode($code64[1]);
     $extension = explode(";", explode('/', $code64[0])[1])[0];
@@ -29,9 +28,17 @@ if (
     file_put_contents($photo_path, $img);
   }
 
+  if (isset($_POST["profile_photo_banner"])) {
+    $code64_banner = explode(',', $_POST["profile_photo_banner"]);
+    $img_banner = base64_decode($code64_banner[1]);
+    $extension_banner = explode(";", explode('/', $code64_banner[0])[1])[0];
+    $profile_photo_banner_path = "profile_photos/" . uniqid() . "." . $extension_banner;
+    file_put_contents($profile_photo_banner_path, $img_banner);
+  }
+
   $query = $mysqli->prepare("UPDATE users Set full_name=? , password=? ,  birth_day=? , bio=? ,profile_photo=?
-  where user_id=?	");
-  $query->bind_param("sssssi", $full_name, $password, $birth_day, $bio, $photo_path, $user_id);
+  , profile_photo_banner=? where user_id=?	");
+  $query->bind_param("ssssssi", $full_name, $password, $birth_day, $bio, $photo_path, $profile_photo_banner_path, $user_id);
 
   if ($query->execute()) {
     $done = true;
