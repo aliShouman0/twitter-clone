@@ -16,10 +16,22 @@ const userName = document.querySelectorAll(".currentUserName ");
 const joinDate = document.querySelector("#joinDate ");
 const bannerProfilePhoto = document.querySelectorAll(".profilePhoto-big ");
 const userProfilePhoto = document.querySelectorAll(".userProfilePhoto ");
+//edit profile
+const bio = document.querySelector("#bio ");
+const bio_input = document.querySelector("#bio_input ");
+const year = document.querySelector("#year ");
+const day = document.querySelector("#day");
+const month = document.querySelector("#month ");
+const fullName = document.querySelector("#fullName");
+const btn_save = document.querySelector("#btn-save");
+const img_upload_banner = document.querySelector("#img-upload-big");
+const img_upload_photo = document.querySelector("#img-upload-small");
+
 const user_id = 11;
 
 // api
 const userInfoApi = "http://localhost:3000/getUserInfo.php";
+const editProfileApi = "http://localhost:3000/editprofile.php";
 
 // edit profile
 edit_profile.addEventListener("click", () => {
@@ -67,6 +79,133 @@ function removeActiveClass() {
   media_tweet.classList.add("d-none");
 }
 
+// print full name and user
+const printName = (name, user_name) => {
+  currentUserFullName.forEach((tag) => {
+    tag.textContent = name;
+  });
+  userName.forEach((tag) => {
+    tag.textContent = user_name;
+  });
+};
+
+// put user img and banner
+const profilePhoto = (img, banner) => {
+  if (img != null && img != "") {
+    userProfilePhoto.forEach((tag) => {
+      tag.style.background = "url(http://localhost:3000/" + img + ")";
+      tag.style.backgroundColor = "none";
+      tag.style.backgroundSize = "cover";
+      tag.style.backgroundRepeat = "no-repeat";
+      tag.style.backgroundPosition = "center";
+    });
+  }
+
+  if (banner != null && banner != "") {
+    bannerProfilePhoto.forEach((tag) => {
+      tag.style.background = "url(http://localhost:3000/" + banner + ")";
+      tag.style.backgroundColor = "none";
+      tag.style.backgroundSize = "cover";
+      tag.style.backgroundRepeat = "no-repeat";
+      tag.style.backgroundPosition = "center";
+    });
+  }
+};
+
+//for edit profile
+const fillEditProfile = (name, bio, birth_day) => {
+  fullName.value = name;
+  bio_input.value = bio;
+  let birth_day_arr = birth_day.split("-");
+  year.value = birth_day_arr[2];
+  day.value = birth_day_arr[0];
+  month.value = birth_day_arr[1];
+};
+
+btn_save.addEventListener("click", (e) => {
+  e.preventDefault();
+  console.log("1");
+  editProfile();
+  console.log("12");
+});
+const reader = new FileReader();
+
+let userNewData = new FormData();
+
+img_upload_photo.addEventListener("change", () => {
+  reader.addEventListener("load", () => {
+    userNewData.append("profile_photo", reader.result);
+    editProfile();
+  });
+  reader.readAsDataURL(img_upload_photo.files[0]);
+});
+
+img_upload_banner.addEventListener("change", () => {
+  reader.addEventListener("load", () => {
+    userNewData.append("profile_photo_banner", reader.result);
+    editProfile();
+  });
+  reader.readAsDataURL(img_upload_banner.files[0]);
+});
+
+const editProfile = () => {
+  let Newbirth_day = day.value + "-" + month.value + "-" + year.value;
+  userNewData.append("user_id", user_id);
+  userNewData.append("full_name", fullName.value);
+  userNewData.append("bio", bio_input.value);
+  userNewData.append("birth_day", Newbirth_day);
+
+  //now change img save pervious path
+  if (img_upload_photo.files.length == 0) {
+    let path_photo = userProfilePhoto[0].style.backgroundImage;
+    if (path_photo != "") {
+      path_photo = userProfilePhoto[0].style.backgroundImage.split("/");
+      path_photo = path_photo[3] + "/" + path_photo[4].slice(0, -2);
+      userNewData.append("current_profile_photo", path_photo);
+    }
+  }
+  //else {
+  //   reader.addEventListener("load", () => {
+  //     userNewData.append("profile_photo", reader.result);
+  //     console.log(reader.result);
+  //   });
+  //   reader.readAsDataURL(img_upload_photo.files[0]);
+  // }
+
+  //same for banner
+  if (img_upload_banner.files.length == 0) {
+    let path_banner = bannerProfilePhoto[0].style.backgroundImage;
+    if (path_banner != "") {
+      path_banner = bannerProfilePhoto[0].style.backgroundImage.split("/");
+      path_banner = path_banner[3] + "/" + path_banner[4].slice(0, -2);
+      userNewData.append("current_profile_photo_banner", path_banner);
+    }
+  }
+  sendNewInfo();
+  // else {
+  //   reader.addEventListener("load", () => {
+  //     userNewData.append("profile_photo_banner", reader.result);
+  //     console.log(reader.result);
+  //   });
+  //   reader.readAsDataURL(img_upload_banner.files[0]);
+  // }
+};
+
+const sendNewInfo = () => {
+  fetch(editProfileApi, {
+    method: "POST",
+    body: userNewData,
+  }).then((res) => {
+    if (res.ok) {
+      res.json().then((data) => {
+        if (data.done) {
+          location.reload();
+        }
+      });
+    }
+  });
+};
+
 // get user info
 
 //to sent the post data in body
@@ -83,41 +222,10 @@ fetch(userInfoApi, {
         printName(data.full_name, data.user_name);
         joinDate.textContent = data.join_date;
         profilePhoto(data.profile_photo, data.profile_photo_banner);
+        bio.textContent = data.bio;
+        fillEditProfile(data.full_name, data.bio, data.birth_day);
         console.log(data);
       }
     });
   }
 });
-
-// print full name
-const printName = (name, user_name) => {
-  currentUserFullName.forEach((tag) => {
-    tag.textContent = name;
-  });
-  userName.forEach((tag) => {
-    tag.textContent = user_name;
-  });
-};
-
-const profilePhoto = (img, banner) => {
-  if (img != null && img != "") {
-    userProfilePhoto.forEach((tag) => {
-      tag.style.background = "url(http://localhost:3000/" + img + ")";
-      tag.style.backgroundColor = "none";
-      tag.style.backgroundSize="cover";
-      tag.style.backgroundRepeat="no-repeat";
-      tag.style.backgroundPosition="center"; 
-
-    });
-  }
-  if (banner != null && banner != "") {
-    bannerProfilePhoto.forEach((tag) => {
-      tag.style.background = "url(http://localhost:3000/" + banner + ")";
-      tag.style.backgroundColor = "none";
-      tag.style.backgroundSize="cover";
-      tag.style.backgroundRepeat="no-repeat";
-      tag.style.backgroundPosition="center"; 
-
-    });
-  }
-};

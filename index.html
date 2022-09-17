@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
     integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="icon" href="assets/twitter.ico">
   <link rel="stylesheet" href="styles/styles.css">
 </head>
 
@@ -38,13 +39,13 @@
           <button class="tweet-button" id="tweet-but">Tweet</button>
         </div>
         <div class="logout-popup" id="logout">
-          <button class="logout-button">Logout <p class="currentUserName">@Emily_Zugay10</p>  </button>
+          <button class="logout-button">Logout <p class="currentUserName">@Emily_Zugay10</p> </button>
         </div>
         <div class="user-logout">
           <div class="logout" id="popup">
             <a href="">
               <!-- circle photo-->
-              
+
               <div class="logout-image userProfilePhoto"></div>
               <!-- <img src="assets/user.jpg" alt="user-profile" class="logout-image"> -->
               <div class="user-details">
@@ -87,6 +88,7 @@
         <div class="info-content">
           <h2 class="fullName currentUserFullName">Emily Zugay</h2>
           <p class="userName currentUserName ">@Emily_Zugay10</p>
+          <p class="bio" id="bio"></p>
           <p class="joinDate"><i class="fa-solid fa-calendar-days"></i>Joined <span id="joinDate">October 2021</span>
           </p>
           <div class="info-stat">
@@ -175,34 +177,34 @@
 
       <!--edit profile  -->
       <div id="edit_container" class="edit-container  d-none ">
-        <div class="header">
-          <div class="close" id="close">
-            <i class="fa-regular fa-circle-xmark fa-2x"></i>
+        <form  >
+          <div class="header">
+            <div class="close" id="close">
+              <i class="fa-regular fa-circle-xmark fa-2x"></i>
+            </div>
+            <span class="title">Edit profile</span>
+            <button class="btn-save" id="btn-save">Save</button>
           </div>
-          <span class="title">Edit profile</span>
-          <button class="btn-save">Save</button>
-        </div>
-        <div class="profilePhoto-container ">
-          <!--big photo  -->
-          <div class="profilePhoto-big change">
-            <input type="file" class="img-upload d-none" id="img-upload-big">
-            <label for="img-upload-big">
-              <i class="fa-solid fa-camera-retro"></i></label>
+          <div class="profilePhoto-container ">
+            <!--big photo  -->
+            <div class="profilePhoto-big change">
+              <input type="file" class="img-upload d-none" id="img-upload-big" accept="image/png, image/gif, image/jpeg">
+              <label for="img-upload-big">
+                <i class="fa-solid fa-camera-retro"></i></label>
+            </div>
+            <!-- circle photo-->
+            <div class="profilePhoto-circle change userProfilePhoto">
+              <input type="file" class="img-upload d-none" id="img-upload-small" accept="image/png, image/gif, image/jpeg">
+              <label for="img-upload-small">
+                <i class="fa-solid fa-camera-retro"></i></label>
+            </div>
           </div>
-          <!-- circle photo-->
-          <div class="profilePhoto-circle change userProfilePhoto">
-            <input type="file" class="img-upload d-none" id="img-upload-small">
-            <label for="img-upload-small">
-              <i class="fa-solid fa-camera-retro"></i></label>
-          </div>
-        </div>
-        <div class="input-edit">
-          <form>
+          <div class="input-edit">
             <input type="text" placeholder="Name" id="fullName" class="input" required>
-            <input type="number" placeholder="Phone" id="phone" class="input d-none">
-            <textarea id="bio" class="bio" cols="30" placeholder="Bio"></textarea>
-            <input type="password" placeholder="password" id="password" class="input" required>
-            <input type="password" placeholder="Confirm password" id="confirm_password" class="input  " required>
+            <!-- <input type="number" placeholder="Phone" id="phone" class="input d-none"> -->
+            <textarea class="bio" cols="30" placeholder="Bio" id="bio_input"></textarea>
+            <input type="password" placeholder="password" id="password" class="input">
+            <input type="password" placeholder="Confirm password" id="confirm_password" class="input  ">
 
             <div class="date">
               <p><b>Date of birth</b></p>
@@ -265,8 +267,8 @@
                 <option value="2003">2003</option>
               </select>
             </div>
-          </form>
-        </div>
+          </div>
+        </form>
       </div>
     </div>
 
