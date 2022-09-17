@@ -31,7 +31,7 @@
         <div class="icon">
           <img src="assets/go_back .png" alt="go_back"> </div>
         <div class="header-content">
-          <p class="fullName">
+          <p class="fullName currentUserFullName">
             Emily Zugay
           </p>
           <small class="tweetsNumber">
@@ -43,15 +43,15 @@
         <!--big photo  -->
         <div class="profilePhoto-big"></div>
         <!-- circle photo-->
-        <div class="profilePhoto-circle"></div>
+        <div class="profilePhoto-circle userProfilePhoto"></div>
       </div>
 
       <div class="profile-info">
         <button class="btn" id="edit_profile">Edit profile</button>
         <div class="info-content">
-          <h2 class="fullName">Emily Zugay</h2>
-          <p class="userName">@Emily_Zugay10</p>
-          <p class="joinDate"><i class="fa-solid fa-calendar-days"></i>Joined October 2021</p>
+          <h2 class="fullName currentUserFullName">Emily Zugay</h2>
+          <p class="userName currentUserName ">@Emily_Zugay10</p>
+          <p class="joinDate"><i class="fa-solid fa-calendar-days"></i>Joined <span id="joinDate">October 2021</span> </p>
           <div class="info-stat">
             <p class="following"><span id="following-nb">920</span>Following</p>
             <p class="followers"><span id="followers-nb">112</span>Followers</p>
@@ -70,10 +70,10 @@
       <!-- tweet components  -->
       <div id="tweet" class="tweets-container  ">
         <div class="user-tweet">
-          <div class="profilePhoto-circle samll"></div>
+          <div class="profilePhoto-circle samll userProfilePhoto"></div>
           <div class="tweet-info">
-            <h4 class="fullName">Emily Zugay</h4>
-            <span class="userName">@Emily_Zugay10</span>
+            <h4 class="fullName currentUserFullName">Emily Zugay</h4>
+            <span class="userName currentUserName ">@Emily_Zugay10</span>
             <span class="tweet-date">October 2021</span>
 
             <p class="tweet-text">A new version (v18.8.0) of
@@ -94,10 +94,10 @@
       <!-- tweet media components  -->
       <div id="media_tweet" class="tweets-container d-none ">
         <div class="user-tweet">
-          <div class="profilePhoto-circle samll"></div>
+          <div class="profilePhoto-circle samll userProfilePhoto"></div>
           <div class="tweet-info">
-            <h4 class="fullName">Emily Zugay</h4>
-            <span class="userName">@Emily_Zugay10</span>
+            <h4 class="fullName currentUserFullName">Emily Zugay</h4>
+            <span class="userName currentUserName ">@Emily_Zugay10</span>
             <span class="tweet-date">October 2021</span>
             <p class="tweet-text">A new version (v18.8.0) of
               @nodejs
@@ -121,8 +121,8 @@
         <div class="user-tweet">
           <img src="assets/photo-1438761681033-6461ffad8d80.jpeg" class="otherUserPhoto samll">
           <div class="tweet-info">
-            <h4 class="fullName">Joey Arhar</h4>
-            <sap class="userName">@matteocollina</sap>
+            <h4 class="fullName  ">Joey Arhar</h4>
+            <sap class="userName ">@matteocollina</sap>
             <span class="tweet-date">October 2019</span>
             <p class="tweet-text">A new version (v18.8.0) of
               I just discovered that baby owls sleep on their stomachs cause their heads are too heavy and I can’t stop
@@ -153,7 +153,7 @@
               <i class="fa-solid fa-camera-retro"></i></label>
           </div>
           <!-- circle photo-->
-          <div class="profilePhoto-circle change">
+          <div class="profilePhoto-circle change userProfilePhoto">
             <input type="file" class="img-upload d-none" id="img-upload-small">
             <label for="img-upload-small">
               <i class="fa-solid fa-camera-retro"></i></label>
