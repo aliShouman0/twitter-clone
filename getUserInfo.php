@@ -9,18 +9,13 @@ if (
   isset($_POST["user_id"])
 ) {
   $user_id = $_POST["user_id"];
-  $query = $mysqli->prepare("SELECT user_id	,full_name	user_name	, email	,profile_photo,	birth_day	,join_date,bio from users where user_id=?	");
+  $query = $mysqli->prepare("SELECT user_id	,full_name,	user_name	, email	,profile_photo,	birth_day	,join_date,bio from users where user_id=?	");
   $query->bind_param("s", $user_id);
 
   if ($query->execute()) {
     $data = $query->get_result();
     $userInfo = $data->fetch_assoc();
     $done = true;
-  }
-
-  if ($userInfo["profile_photo"] != "" && $userInfo["profile_photo"] != NULL) {
-    $img = file_get_contents($userInfo["profile_photo"]);
-    $userInfo["profile_photo"] = base64_encode($img);
   }
 }
 

@@ -10,8 +10,6 @@ if (
 ) {
   $user_id = $_POST["user_id"];
   $tweet_id = $_POST["tweet_id"];
-
- 
   $query = $mysqli->prepare("INSERT into liked_tweets (user_id,tweet_id) VALUES(?,?)
     ");
   $query->bind_param("ii",  $user_id, $tweet_id);
