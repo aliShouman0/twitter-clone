@@ -69,11 +69,11 @@ CREATE TABLE IF NOT EXISTS `twitterdb`.`liked_tweets` (
 CREATE TABLE IF NOT EXISTS `twitterdb`.`blocked_users` (
   `id` INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   `user_id` INT UNSIGNED NOT NULL,
-  `bloked_ user_id`  INT UNSIGNED NOT NULL, 
+  `bloked_user_id`  INT UNSIGNED NOT NULL, 
   CONSTRAINT `fk_users_has_users_users3`
     FOREIGN KEY (`user_id`)
     REFERENCES `twitterdb`.`users` (`user_id`) ,
   CONSTRAINT `fk_users_has_users_users4`
-    FOREIGN KEY (`bloked_ user_id`)
+    FOREIGN KEY (`bloked_user_id`)
     REFERENCES `twitterdb`.`users` (`user_id`) ) ;
  
