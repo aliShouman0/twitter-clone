@@ -1,5 +1,6 @@
 <?php
 header("Access-Control-Allow-Origin: http://127.0.0.1:5500 ");
+//header("Content-type: image/gif");
 include("connection.php");
 $done = false;
 
@@ -19,11 +20,13 @@ if (
   if (isset($_POST["bio"])) {
     $bio = $_POST["bio"];
   }
-  if (isset($_FILES["profile_photo"])) {
-    $photo_name = $_FILES["profile_photo"]['name'];
-    $tmp_name = $_FILES["profile_photo"]['tmp_name'];
-    $photo_path = "profile_photos/" . $photo_name;
-    move_uploaded_file($tmp_name, $photo_path);
+  if (isset($_POST["profile_photo"]) && isset($_POST["fileName"])) {
+    $fileName = $_POST["fileName"];
+    $code64 = explode(',', $_POST["profile_photo"]);
+    $img = base64_decode($code64[1]);
+    $extension = explode(";", explode('/', $code64[0])[1])[0]; 
+    $photo_path = "profile_photos/" . uniqid() . "." . $extension;
+    file_put_contents($photo_path, $img);
   }
 
 
