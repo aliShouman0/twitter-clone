@@ -10,18 +10,26 @@ if (
 
   $user_id = $_POST["user_id"];
   $full_name = $_POST["full_name"];
+  // $password = hash('sha256', $_POST["password"] );
   $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
   $birth_day = $_POST["birth_day"];
   $bio = "";
-  //we must insert data as data type in db
-  //$birth_day = "STR_TO_DATE('$birthday', '%d-%m-%Y')";
+  $photo_path = "";
+
   if (isset($_POST["bio"])) {
     $bio = $_POST["bio"];
   }
+  if (isset($_FILES["profile_photo"])) {
+    $photo_name = $_FILES["profile_photo"]['name'];
+    $tmp_name = $_FILES["profile_photo"]['tmp_name'];
+    $photo_path = "profile_photos/" . $photo_name;
+    move_uploaded_file($tmp_name, $photo_path);
+  }
 
-  $query = $mysqli->prepare("UPDATE users Set full_name=? , password=? ,  birth_day=? , bio=? 
+
+  $query = $mysqli->prepare("UPDATE users Set full_name=? , password=? ,  birth_day=? , bio=? ,profile_photo=?
   where user_id=?	");
-  $query->bind_param("ssssi", $full_name,   $password, $birth_day, $bio, $user_id);
+  $query->bind_param("sssssi", $full_name, $password, $birth_day, $bio, $photo_path, $user_id);
 
   if ($query->execute()) {
     $done = true;
