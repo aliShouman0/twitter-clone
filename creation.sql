@@ -52,10 +52,10 @@ CREATE TABLE IF NOT EXISTS `twitterdb`.`follows` (
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `twitterdb`.`liked_tweets` (
   `id` INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-  ` user_id` INT UNSIGNED NOT NULL,
+  `user_id` INT UNSIGNED NOT NULL,
   `tweet_id` INT UNSIGNED NOT NULL, 
   CONSTRAINT `fk_users_has_tweet_users1`
-    FOREIGN KEY (` user_id`)
+    FOREIGN KEY (`user_id`)
     REFERENCES `twitterdb`.`users` (`user_id`) ,
   CONSTRAINT `fk_users_has_tweet_tweet1`
     FOREIGN KEY (`tweet_id`)
