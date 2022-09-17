@@ -8,6 +8,10 @@
     height: 100%;
 }
 
+.main-sign{
+    overflow: hidden;
+}
+
 .hero{
     display: flex;
     opacity: 1;
@@ -84,6 +88,10 @@ h6{
     font-family: sans-serif;
 }
 
+.foot{
+    padding-bottom: 8%;
+} 
+
 .foot a{
     color: #1d9bf2;
     text-decoration: none;
@@ -97,6 +105,10 @@ h6{
     margin-top: 5%;
     font-size: 20px;
     font-family: sans-serif;
+}
+
+.foot-popup{
+    padding-top: 13%;
 }
 
 .signin-button{
@@ -192,7 +204,8 @@ h6{
 
 .signup-input{
     width: 70%;
-    margin-top: 3%;
+    margin-top: 1.5%;
+    padding: 17px;
 }
 
 .password{
@@ -215,11 +228,11 @@ h6{
 }
 
 .signup-button{
-    margin-bottom: 4%;
     border-radius: 50px;
     font-size: 15px;
     font-weight: bold;
-    padding: 2% 20%;
+    padding: 2% 10%;
+    width: 50%;
     background-color: white;
     color: #000000;
 }
@@ -275,19 +288,6 @@ span:hover{
     border-bottom: 1px solid #1d9bf0; 
 }
 
-.login-popup{
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    width: 45%;
-    height: auto;
-    left: 28%;
-    bottom: 6%;
-    border-radius: 20px;
-    background-color: #000000;
-    transition: all 1s ease-in-out;
-}
-
 .logo-popup{
     text-align: start;
     font-size: 32px;
@@ -326,30 +326,108 @@ span:hover{
     user-select: none;
 }
 
-.select {
+.select{
     display: flex;
     justify-content: space-around;
     align-items: center;
     width: 71%;
-    padding: 3% 0;
+    padding: 1% 0 0 0;
 }
 
 .month{
     background-color: #000000;
     width: 78%;
+    padding: 3% 0;
     margin: 1.2rem 0.5%;
 }
   
 .day{
     background-color: #000000;
     width: 41%;
+    padding: 3% 0;
     margin: 1.2rem 0.5%;
 }
   
 .year{
     background-color: #000000;
     width: 41%;
+    padding: 3% 0;
     margin: 1.2rem 0.5%;
 }
-  
-  
+
+.login-popup{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    width: 45%;
+    height: auto;
+    top: 5%;
+    left: 28%;
+    bottom: 5%;
+    border-radius: 20px;
+    background-color: #000000;
+    transition: all 1s ease-in-out;
+}
+
+.pop-item{
+    height: 20px;
+}
+
+.body-popup{
+    height: 48%;
+}
+ 
+@media (max-width: 1100px){
+    .hero{
+        flex-direction: column-reverse;
+    }
+
+    .picture{
+        width: 100%;
+    }
+
+    .content{
+        width: 100%;
+    }
+
+    .homepage-footer-elements{
+        flex-wrap: wrap;
+    }
+
+    .login-popup{
+        width: 50%;
+        position: absolute;
+        top: 5%;
+        left: 25%;
+        bottom: 2%;
+    }
+
+    .select{
+        padding-bottom: 1%;
+    }
+
+    .foot-popup{
+        margin-top: 0%;
+    }
+}
+@media (max-width: 650px){
+    .main-hero{
+        overflow: hidden;
+        flex-direction: row;
+    }
+
+    .login-popup{
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        bottom: 0;
+    }
+}
+
+/*@media (max-width: 1100px){
+    .login-popup{
+        height: 90%;
+    }
+}*/
+
