@@ -16,6 +16,7 @@ const userName = document.querySelectorAll(".currentUserName ");
 const joinDate = document.querySelector("#joinDate ");
 const bannerProfilePhoto = document.querySelectorAll(".profilePhoto-big ");
 const userProfilePhoto = document.querySelectorAll(".userProfilePhoto ");
+const following_nb = document.querySelector("#following-nb ");
 //edit profile
 const bio = document.querySelector("#bio ");
 const bio_input = document.querySelector("#bio_input ");
@@ -32,6 +33,7 @@ const user_id = 11;
 // api
 const userInfoApi = "http://localhost:3000/getUserInfo.php";
 const editProfileApi = "http://localhost:3000/editprofile.php";
+const getfollowingApi = "http://localhost:3000/getfollowing.php";
 
 // edit profile
 edit_profile.addEventListener("click", () => {
@@ -124,14 +126,15 @@ const fillEditProfile = (name, bio, birth_day) => {
 
 btn_save.addEventListener("click", (e) => {
   e.preventDefault();
-  console.log("1");
   editProfile();
-  console.log("12");
 });
+
+//edit profile post data to api
 const reader = new FileReader();
 
 let userNewData = new FormData();
 
+//send img
 img_upload_photo.addEventListener("change", () => {
   reader.addEventListener("load", () => {
     userNewData.append("profile_photo", reader.result);
@@ -140,6 +143,7 @@ img_upload_photo.addEventListener("change", () => {
   reader.readAsDataURL(img_upload_photo.files[0]);
 });
 
+//send banner img
 img_upload_banner.addEventListener("change", () => {
   reader.addEventListener("load", () => {
     userNewData.append("profile_photo_banner", reader.result);
@@ -148,6 +152,7 @@ img_upload_banner.addEventListener("change", () => {
   reader.readAsDataURL(img_upload_banner.files[0]);
 });
 
+//send new info
 const editProfile = () => {
   let Newbirth_day = day.value + "-" + month.value + "-" + year.value;
   userNewData.append("user_id", user_id);
@@ -164,13 +169,6 @@ const editProfile = () => {
       userNewData.append("current_profile_photo", path_photo);
     }
   }
-  //else {
-  //   reader.addEventListener("load", () => {
-  //     userNewData.append("profile_photo", reader.result);
-  //     console.log(reader.result);
-  //   });
-  //   reader.readAsDataURL(img_upload_photo.files[0]);
-  // }
 
   //same for banner
   if (img_upload_banner.files.length == 0) {
@@ -182,13 +180,6 @@ const editProfile = () => {
     }
   }
   sendNewInfo();
-  // else {
-  //   reader.addEventListener("load", () => {
-  //     userNewData.append("profile_photo_banner", reader.result);
-  //     console.log(reader.result);
-  //   });
-  //   reader.readAsDataURL(img_upload_banner.files[0]);
-  // }
 };
 
 const sendNewInfo = () => {
@@ -205,9 +196,9 @@ const sendNewInfo = () => {
     }
   });
 };
+//end edit profile
 
 // get user info
-
 //to sent the post data in body
 let userInfoData = new FormData();
 userInfoData.append("user_id", user_id);
@@ -225,6 +216,20 @@ fetch(userInfoApi, {
         bio.textContent = data.bio;
         fillEditProfile(data.full_name, data.bio, data.birth_day);
         console.log(data);
+      }
+    });
+  }
+});
+
+//getfollowing
+fetch(getfollowingApi, {
+  method: "POST",
+  body: userInfoData,
+}).then((res) => {
+  if (res.ok) {
+    res.json().then((data) => {
+      if (data.done) {
+        following_nb.textContent = data.number_of_following.count_following;
       }
     });
   }
