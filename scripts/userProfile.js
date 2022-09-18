@@ -128,6 +128,7 @@ const postNewTweet = () => {
     }
   });
 };
+
 const tweetreader = new FileReader();
 newTweet.addEventListener("click", () => {
   if (input_image.files.length == 0) {
