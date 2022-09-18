@@ -34,6 +34,7 @@ const isFollowApi = "http://localhost:3000/isFollow.php";
 const unFollowApi = "http://localhost:3000/unFollow.php";
 const getTweetApi = "http://localhost:3000/getUserTweet.php";
 const getLikedTweetApi = "http://localhost:3000/getLikedTweet.php";
+const getNbOfLikeApi = "http://localhost:3000/getNbOfLike.php";
 
 const login_user_id = 121;
 
@@ -108,6 +109,7 @@ const printName = (name, user_name) => {
 
 // put user img and banner
 const profilePhoto = (img, banner) => {
+  const userProfilePhoto = document.querySelectorAll(".userProfilePhoto ");
   if (img != null && img != "") {
     userProfilePhoto.forEach((tag) => {
       tag.style.background = "url(http://localhost:3000/" + img + ")";
@@ -189,8 +191,6 @@ const followUser = (id) => {
   });
 };
 
-
-
 const bluidTweet = (tweet) => {
   let user_tweet = document.createElement("div");
   user_tweet.classList.add("user-tweet");
@@ -234,6 +234,23 @@ const bluidTweet = (tweet) => {
   tweet_info.appendChild(nbLike);
   user_tweet.appendChild(img);
   user_tweet.appendChild(tweet_info);
+
+  //get nb of like for this tweet
+  let tweetidData = new FormData();
+  tweetidData.append("tweet_id", tweet.tweet_id);
+  fetch(getNbOfLikeApi, {
+    method: "POST",
+    body: tweetidData,
+  }).then((res) => {
+    if (res.ok) {
+      res.json().then((data) => {
+        if (data.done) {
+          nb.textContent = data.like;
+        }
+      });
+    }
+  });
+
   if (tweet.tweet_photo != null && tweet.tweet_photo != "") {
     media_tweet_container.appendChild(user_tweet);
   } else {
@@ -285,6 +302,22 @@ const bluidLikedTweet = (tweet) => {
   user_tweet.appendChild(imgUser);
   user_tweet.appendChild(tweet_info);
 
+  //get nb of like for this tweet
+  let tweetidData = new FormData();
+  tweetidData.append("tweet_id", tweet.tweet_id);
+  fetch(getNbOfLikeApi, {
+    method: "POST",
+    body: tweetidData,
+  }).then((res) => {
+    if (res.ok) {
+      res.json().then((data) => {
+        if (data.done) {
+          nb.textContent = data.like;
+        }
+      });
+    }
+  });
+
   fetch(userInfoApi, {
     method: "POST",
     body: tweetUserData,
@@ -293,9 +326,11 @@ const bluidLikedTweet = (tweet) => {
       res.json().then((data) => {
         if (data.done) {
           data = data.userInfo;
-          imgUser.src = "http://localhost:3000/" + data.profile_photo;
+          if (data.profile_photo != null && data.profile_photo  != "") {
+            imgUser.src = "http://localhost:3000/" + data.profile_photo;
+          }
           h4.textContent = data.full_name;
-          span.textContent = data.user_name; 
+          span.textContent = data.user_name;
           liked_tweet.appendChild(user_tweet);
         }
       });
@@ -339,9 +374,6 @@ fetch(getLikedTweetApi, {
 });
 
 // get user info
-
-
-
 
 // get the login user info
 fetch(userInfoApi, {
@@ -426,7 +458,6 @@ fetch(numberOfTweetApi, {
     });
   }
 });
-
 
 //get UnFollow User might like
 fetch(getUnFollowUserApi, {

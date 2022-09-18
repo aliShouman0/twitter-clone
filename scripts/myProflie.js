@@ -46,6 +46,7 @@ const getUnFollowUserApi = "http://localhost:3000/getUnFollowUser.php";
 const FollowApi = "http://localhost:3000/follow.php";
 const getTweetApi = "http://localhost:3000/getUserTweet.php";
 const getLikedTweetApi = "http://localhost:3000/getLikedTweet.php";
+const getNbOfLikeApi = "http://localhost:3000/getNbOfLike.php";
 
 //to sent the post data in body for get user info
 let userInfoData = new FormData();
@@ -280,6 +281,23 @@ const bluidTweet = (tweet) => {
   tweet_info.appendChild(nbLike);
   user_tweet.appendChild(img);
   user_tweet.appendChild(tweet_info);
+
+  //get nb of like for this tweet
+  let tweetidData = new FormData();
+  tweetidData.append("tweet_id", tweet.tweet_id);
+  fetch(getNbOfLikeApi, {
+    method: "POST",
+    body: tweetidData,
+  }).then((res) => {
+    if (res.ok) {
+      res.json().then((data) => {
+        if (data.done) {
+          nb.textContent = data.like;
+        }
+      });
+    }
+  });
+
   if (tweet.tweet_photo != null && tweet.tweet_photo != "") {
     media_tweet_container.appendChild(user_tweet);
   } else {
@@ -314,7 +332,6 @@ const bluidLikedTweet = (tweet) => {
   i.classList.add("fa-regular");
   i.classList.add("fa-heart");
   let nb = document.createElement("span");
-  nb.textContent = 456;
   nbLike.appendChild(i);
   nbLike.appendChild(nb);
   tweet_info.appendChild(h4);
@@ -331,17 +348,35 @@ const bluidLikedTweet = (tweet) => {
   user_tweet.appendChild(imgUser);
   user_tweet.appendChild(tweet_info);
 
+  //get nb of like for this tweet
+  let tweetidData = new FormData();
+  tweetidData.append("tweet_id", tweet.tweet_id);
+  fetch(getNbOfLikeApi, {
+    method: "POST",
+    body: tweetidData,
+  }).then((res) => {
+    if (res.ok) {
+      res.json().then((data) => {
+        if (data.done) {
+          nb.textContent = data.like;
+        }
+      });
+    }
+  });
+
   fetch(userInfoApi, {
     method: "POST",
     body: tweetUserData,
   }).then((res) => {
     if (res.ok) {
       res.json().then((data) => {
-        if (data.done) {
+        if (data.done) { 
           data = data.userInfo;
-          imgUser.src = "http://localhost:3000/" + data.profile_photo;
+          if (data.profile_photo  != null && data.profile_photo  != "") {
+            imgUser.src = "http://localhost:3000/" + data.profile_photo;
+          }
           h4.textContent = data.full_name;
-          span.textContent = data.user_name; 
+          span.textContent = data.user_name;
           liked_tweet.appendChild(user_tweet);
         }
       });
