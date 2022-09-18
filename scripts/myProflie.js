@@ -33,8 +33,12 @@ const fullName = document.querySelector("#fullName");
 const btn_save = document.querySelector("#btn-save");
 const img_upload_banner = document.querySelector("#img-upload-big");
 const img_upload_photo = document.querySelector("#img-upload-small");
+const newTweet = document.querySelector("#newTweet");
+const input_image = document.querySelector("#input-image");
+const newTweetText = document.querySelector("#newTweetText");
 
 const user_id = 121;
+const login_user_name = "121";
 
 // api
 const userInfoApi = "http://localhost:3000/getUserInfo.php";
@@ -47,6 +51,7 @@ const FollowApi = "http://localhost:3000/follow.php";
 const getTweetApi = "http://localhost:3000/getUserTweet.php";
 const getLikedTweetApi = "http://localhost:3000/getLikedTweet.php";
 const getNbOfLikeApi = "http://localhost:3000/getNbOfLike.php";
+const newTweetApi = "http://localhost:3000/newTweet.php";
 
 //to sent the post data in body for get user info
 let userInfoData = new FormData();
@@ -54,15 +59,18 @@ userInfoData.append("user_id", user_id);
 
 //tweet pop
 tweet_button.addEventListener("click", () => {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
   overlay.classList.remove("d-none");
   tweet_popup.classList.remove("d-none");
+  body.classList.add("overflow-n");
 });
 
 //tweet close pop
 close_tweet_popup.addEventListener("click", () => {
   overlay.classList.add("d-none");
-  tweet_popup.classList.add("d-none");
-  console.log("asd")
+  tweet_popup.classList.add("d-none"); 
+  body.classList.remove("overflow-n");
 });
 
 // edit profile
@@ -110,6 +118,39 @@ function removeActiveClass() {
   liked_tweet.classList.add("d-none");
   media_tweet.classList.add("d-none");
 }
+
+// post new tweet
+let postNewTweetData = new FormData();
+const postNewTweet = () => {
+  postNewTweetData.append("user_name", login_user_name);
+  postNewTweetData.append("tweet_text", newTweetText.value);
+  postNewTweetData.append("user_id", user_id);
+
+  fetch(newTweetApi, {
+    method: "POST",
+    body: postNewTweetData,
+  }).then((res) => {
+    if (res.ok) {
+      res.json().then((data) => {
+        if (data) {
+          location.reload();
+        }
+      });
+    }
+  });
+};
+const tweetreader = new FileReader();
+newTweet.addEventListener("click", () => {
+  if (input_image.files.length == 0) {
+    postNewTweet();
+  } else {
+    tweetreader.addEventListener("load", () => {
+      postNewTweetData.append("tweet_photo", tweetreader.result);
+      postNewTweet();
+    });
+    tweetreader.readAsDataURL(input_image.files[0]);
+  }
+});
 
 // print full name and user
 const printName = (name, user_name) => {
@@ -239,8 +280,7 @@ const followUser = (id) => {
   fetch(FollowApi, {
     method: "POST",
     body: userIds,
-  }).then((res) => {
-    console.log(res);
+  }).then((res) => { 
     if (res.ok) {
       res.json().then((data) => {
         if (data.done) {
@@ -424,8 +464,7 @@ fetch(getLikedTweetApi, {
 }).then((res) => {
   if (res.ok) {
     res.json().then((data) => {
-      if (data.done) {
-        console.log(data);
+      if (data.done) { 
         data = data.tweets;
         data.forEach((tweet) => {
           bluidLikedTweet(tweet);

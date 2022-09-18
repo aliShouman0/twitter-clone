@@ -11,6 +11,8 @@
 </head>
 
 <body id="body">
+  <!-- overlay for edit profile -->
+  <div id="overlay" class="overlay d-none"></div>
   <div class="page">
 
     <!-- left side bar -->
@@ -36,25 +38,22 @@
           <button class="tweet-button" id="tweet-but">Tweet</button>
         </div>
         <div class="logout-popup" id="logout">
-          <button class="logout-button">Logout <p class="currentUserName">@Emily_Zugay10</p> </button>
+          <button class="logout-button">Logout <p class="currentUserName"> </p> </button>
         </div>
         <div class="user-logout">
           <div class="logout" id="popup">
             <a href="">
               <!-- circle photo-->
-
               <div class="logout-image " id="loginProfilePhoto"></div>
               <!-- <img src="assets/user.jpg" alt="user-profile" class="logout-image"> -->
               <div class="user-details">
-                <span class="logout-name " id="loginUserFullName">Emily Zugay</span>
-                <p class="logout-user " id="logintUserName">@Emily_Zugay10</p>
+                <span class="logout-name " id="loginUserFullName"> </span>
+                <p class="logout-user " id="logintUserName"> </p>
               </div>
             </a>
           </div>
         </div>
       </div>
-
-
 
     </div>
 
@@ -66,7 +65,7 @@
           <img src="assets/go_back .png" alt="go_back"> </div>
         <div class="header-content">
           <p class="fullName currentUserFullName">
-            Emily Zugay
+           
           </p>
           <small class="tweetsNumber">
             <span id="numberOfTweet">0</span> Tweets</small>
@@ -86,14 +85,14 @@
           <button class="btn" id="block">Block</button>
         </div>
         <div class="info-content">
-          <h2 class="fullName currentUserFullName">Emily Zugay</h2>
-          <p class="userName currentUserName ">@Emily_Zugay10</p>
+          <h2 class="fullName currentUserFullName"> </h2>
+          <p class="userName currentUserName "> </p>
           <p class="bio" id="bio"></p>
           <p class="joinDate"><i class="fa-solid fa-calendar-days"></i>Joined <span id="joinDate">October 2021</span>
           </p>
           <div class="info-stat">
-            <p class="following"><span id="following-nb">920</span>Following</p>
-            <p class="followers"><span id="followers-nb">112</span>Followers</p>
+            <p class="following"><span id="following-nb"> </span>Following</p>
+            <p class="followers"><span id="followers-nb"> </span>Followers</p>
           </div>
         </div>
       </div>
@@ -136,11 +135,30 @@
 
     </div>
 
-    
+    <div class="tweet-on d-none" id="tweet-on">
+      <div class="tweet-on-item">
+        <button class="tweet-on-button" id="close_pop">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="tweet-on-item">
+
+        <div class="head-item tweet onpop "> 
+          <div class="logout-image " id="loginProfilePhoto2"></div>
+
+          <textarea class="head-text" placeholder="What's happening?" id="newTweetText"></textarea>
+        </div>
+
+        <div class="head-item submit submit-onpop">
+          <label for="input-image" class="label" title="media"><i class="fa fa-image"></i></label>
+          <input type="file" class="file" id="input-image" accept="image/png, image/gif, image/jpeg" />
+          <button class="popup-button" id="newTweet" >Tweet</button>
+        </div>
+      </div>
 
 
-  </div>
-  <script src="scripts/userProfile.js"></script>
+    </div>
+    <script src="scripts/userProfile.js"></script>
 </body>
 
 </html>

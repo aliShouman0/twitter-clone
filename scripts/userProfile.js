@@ -7,21 +7,26 @@ const usertweet = document.getElementById("tweet");
 const liked_tweet = document.getElementById("liked_tweet");
 const media_tweet = document.getElementById("media_tweet");
 const body = document.getElementById("body");
-//const currentUserFullName = document.querySelectorAll(".currentUserFullName");
-//const userName = document.querySelectorAll(".currentUserName ");
+const overlay = document.getElementById("overlay");
 const joinDate = document.querySelector("#joinDate ");
 const bannerProfilePhoto = document.querySelectorAll(".profilePhoto-big ");
-//const userProfilePhoto = document.querySelectorAll(".userProfilePhoto ");
 const following_nb = document.querySelector("#following-nb ");
 const followers_nb = document.querySelector("#followers-nb ");
 const numberOfTweet = document.querySelector("#numberOfTweet");
 const unfollowUser_container = document.querySelector("#unfollowUser");
 const loginUserFullName = document.querySelector("#loginUserFullName");
 const loginProfilePhoto = document.querySelector("#loginProfilePhoto");
+const loginProfilePhoto2 = document.querySelector("#loginProfilePhoto2");
 const logintUserName = document.querySelector("#logintUserName");
 const follow_un_btn = document.querySelector("#follow-un");
 const tweet_container = document.querySelector("#tweet");
 const media_tweet_container = document.querySelector("#media_tweet");
+const tweet_button = document.querySelector("#tweet-but");
+const tweet_popup = document.querySelector("#tweet-on");
+const close_tweet_popup = document.querySelector("#close_pop");
+const newTweet = document.querySelector("#newTweet");
+const input_image = document.querySelector("#input-image");
+const newTweetText = document.querySelector("#newTweetText");
 
 // api
 const userInfoApi = "http://localhost:3000/getUserInfo.php";
@@ -36,8 +41,10 @@ const getTweetApi = "http://localhost:3000/getUserTweet.php";
 const getLikedTweetApi = "http://localhost:3000/getLikedTweet.php";
 const getNbOfLikeApi = "http://localhost:3000/getNbOfLike.php";
 const likeTweetApi = "http://localhost:3000/likeTweet.php";
+const newTweetApi = "http://localhost:3000/newTweet.php";
 
 const login_user_id = 121;
+const login_user_name = "121";
 
 //user for api to get inof pf login user
 const loginuersData = new FormData();
@@ -64,6 +71,21 @@ if (user_id == login_user_id) {
   location.replace("myProflie.html");
 }
 
+//tweet pop
+tweet_button.addEventListener("click", () => {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  overlay.classList.remove("d-none");
+  tweet_popup.classList.remove("d-none");
+  body.classList.add("overflow-n");
+});
+
+//tweet close pop
+close_tweet_popup.addEventListener("click", () => {
+  overlay.classList.add("d-none");
+  tweet_popup.classList.add("d-none");
+  body.classList.remove("overflow-n");
+});
 // for bar of 3 btn
 tweets_btn.addEventListener("click", () => {
   // remove active class and put reomve from screen
@@ -85,6 +107,40 @@ likes_btn.addEventListener("click", () => {
   likes_btn.classList.add("active");
   liked_tweet.classList.remove("d-none");
 });
+
+// post new tweet
+let postNewTweetData = new FormData();
+const postNewTweet = () => {
+  postNewTweetData.append("user_name", login_user_name);
+  postNewTweetData.append("tweet_text", newTweetText.value);
+  postNewTweetData.append("user_id", login_user_id);
+
+  fetch(newTweetApi, {
+    method: "POST",
+    body: postNewTweetData,
+  }).then((res) => {
+    if (res.ok) {
+      res.json().then((data) => {
+        if (data) {
+          location.reload();
+        }
+      });
+    }
+  });
+};
+const tweetreader = new FileReader();
+newTweet.addEventListener("click", () => {
+  if (input_image.files.length == 0) {
+    postNewTweet();
+  } else {
+    tweetreader.addEventListener("load", () => {
+      postNewTweetData.append("tweet_photo", tweetreader.result);
+      postNewTweet();
+    });
+    tweetreader.readAsDataURL(input_image.files[0]);
+  }
+});
+
 
 function removeActiveClass() {
   tweets_btn.classList.remove("active");
@@ -417,6 +473,13 @@ fetch(userInfoApi, {
           loginProfilePhoto.style.backgroundSize = "cover";
           loginProfilePhoto.style.backgroundRepeat = "no-repeat";
           loginProfilePhoto.style.backgroundPosition = "center";
+          // do not say why like this no time
+          loginProfilePhoto2.style.background =
+            "url(http://localhost:3000/" + data.profile_photo + ")";
+          loginProfilePhoto2.style.backgroundColor = "none";
+          loginProfilePhoto2.style.backgroundSize = "cover";
+          loginProfilePhoto2.style.backgroundRepeat = "no-repeat";
+          loginProfilePhoto2.style.backgroundPosition = "center";
         }
       }
     });
