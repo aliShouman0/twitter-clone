@@ -35,6 +35,7 @@ const unFollowApi = "http://localhost:3000/unFollow.php";
 const getTweetApi = "http://localhost:3000/getUserTweet.php";
 const getLikedTweetApi = "http://localhost:3000/getLikedTweet.php";
 const getNbOfLikeApi = "http://localhost:3000/getNbOfLike.php";
+const likeTweetApi = "http://localhost:3000/likeTweet.php";
 
 const login_user_id = 121;
 
@@ -191,6 +192,27 @@ const followUser = (id) => {
   });
 };
 
+//like a tweet
+const liketweet = (tweet_id) => {
+  const likeData = new FormData();
+  likeData.append("user_id", login_user_id);
+  likeData.append("tweet_id", tweet_id);
+  console.log(login_user_id, tweet_id);
+  fetch(likeTweetApi, {
+    method: "POST",
+    body: likeData,
+  }).then((res) => {
+    if (res.ok) {
+      res.json().then((data) => {
+        console.log(data);
+        if (data.done) {
+          location.reload();
+        }
+      });
+    }
+  });
+};
+
 const bluidTweet = (tweet) => {
   let user_tweet = document.createElement("div");
   user_tweet.classList.add("user-tweet");
@@ -211,16 +233,17 @@ const bluidTweet = (tweet) => {
   let p = document.createElement("p");
   p.classList.add("tweet-text");
   p.textContent = tweet.tweet_text;
-
   let nbLike = document.createElement("div");
   nbLike.classList.add("nb-like");
   let i = document.createElement("i");
   i.classList.add("fa-regular");
   i.classList.add("fa-heart");
   let nb = document.createElement("span");
-  nb.textContent = 456;
   nbLike.appendChild(i);
   nbLike.appendChild(nb);
+  nbLike.addEventListener("click", () => {
+    liketweet(tweet.tweet_id);
+  });
   tweet_info.appendChild(h4);
   tweet_info.appendChild(span);
   tweet_info.appendChild(dataSpan);
@@ -365,7 +388,6 @@ fetch(getLikedTweetApi, {
   if (res.ok) {
     res.json().then((data) => {
       if (data.done) {
-        console.log(data);
         data = data.tweets;
         data.forEach((tweet) => {
           bluidLikedTweet(tweet);

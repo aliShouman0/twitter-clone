@@ -65,8 +65,9 @@
     <div class="container">
 
       <div class="header">
-        <div class="icon">
-          <img src="assets/go_back .png" alt="go_back"> </div>
+        <div class="icon" onclick="history.back()">
+          <img src="assets/go_back .png" alt="go_back">
+        </div>
         <div class="header-content">
           <p class="fullName currentUserFullName">
             Emily Zugay
@@ -109,17 +110,17 @@
       </div>
 
       <!-- tweet components  -->
-      <div id="tweet" class="tweets-container  "> 
+      <div id="tweet" class="tweets-container  ">
       </div>
 
       <!-- tweet media components  -->
       <div id="media_tweet" class="tweets-container d-none ">
-        
+
       </div>
 
       <!--liked tweets      -->
       <div id="liked_tweet" class="tweets-container d-none ">
-       
+
       </div>
 
       <!--edit profile  -->
@@ -231,6 +232,27 @@
         </div>
       </div>
 
+    </div>
+
+    <div class="tweet-on d-none" id="tweet-on">
+      <div class="tweet-on-item">
+        <button class="tweet-on-button" id="close">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="tweet-on-item">
+
+        <div class="head-item tweet onpop ">
+          <div class="logout-image userProfilePhoto"></div>
+          <textarea class="head-text" placeholder="What's happening?"></textarea>
+        </div>
+
+        <div class="head-item submit submit-onpop">
+          <label for="input-image" class="label" title="media"><i class="fa fa-image"></i></label>
+          <input type="file" class="file" id="input-image" accept="image/png, image/gif, image/jpeg" />
+          <button class="popup-button">Tweet</button>
+        </div>
+      </div>
     </div>
 
 
