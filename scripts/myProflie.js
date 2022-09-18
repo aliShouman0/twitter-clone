@@ -34,7 +34,7 @@ const btn_save = document.querySelector("#btn-save");
 const img_upload_banner = document.querySelector("#img-upload-big");
 const img_upload_photo = document.querySelector("#img-upload-small");
 
-const user_id = 11;
+const user_id = 121;
 
 // api
 const userInfoApi = "http://localhost:3000/getUserInfo.php";
