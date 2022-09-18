@@ -41,6 +41,7 @@ const getfollowingApi = "http://localhost:3000/getfollowing.php";
 const getFollowersApi = "http://localhost:3000/getfollower.php";
 const numberOfTweetApi = "http://localhost:3000/numberOfTweet.php";
 const getUnFollowUserApi = "http://localhost:3000/getUnFollowUser.php";
+const FollowApi = "http://localhost:3000/follow.php";
 
 //to sent the post data in body for get user info
 let userInfoData = new FormData();
@@ -209,6 +210,26 @@ const sendNewInfo = () => {
 };
 //end edit profile
 
+// follow btn
+const followUser = (id) => {
+  let userIds = new FormData();
+  userIds.append("user_id", user_id);
+  userIds.append("follow_user_id", id);
+  fetch(FollowApi, {
+    method: "POST",
+    body: userIds,
+  }).then((res) => {
+    console.log(res);
+    if (res.ok) {
+      res.json().then((data) => {
+        if (data.done) {
+          location.reload();
+        }
+      });
+    }
+  });
+};
+
 // get user info
 fetch(userInfoApi, {
   method: "POST",
@@ -278,7 +299,7 @@ fetch(getUnFollowUserApi, {
 }).then((res) => {
   if (res.ok) {
     res.json().then((data) => {
-      if (data.done) {  
+      if (data.done) {
         data = data.userInfo;
         data.forEach((user) => {
           let might_like = document.createElement("div");
@@ -287,8 +308,11 @@ fetch(getUnFollowUserApi, {
           let classesToAdd = ["otherUserPhoto", "samll", "xsmall"];
           img.classList.add(...classesToAdd);
           if (user.profile_photo != "" && user.profile_photo != null) {
-            img.src = "http://localhost:3000/" + user.profile_photo + "";
-            img.style.background = "none";
+            img.style.background = "url(http://localhost:3000/" + user.profile_photo + ")";
+            img.style.backgroundColor = "none";
+            img.style.backgroundSize = "cover";
+            img.style.backgroundRepeat = "no-repeat";
+            img.style.backgroundPosition = "center";
           }
           let div = document.createElement("div");
           let h4 = document.createElement("h4");
@@ -309,6 +333,10 @@ fetch(getUnFollowUserApi, {
           might_like.appendChild(a);
           might_like.appendChild(button);
           unfollowUser_container.appendChild(might_like);
+        
+          button.addEventListener("click", () => { 
+            followUser(user.user_id);
+          });
         });
       }
     });

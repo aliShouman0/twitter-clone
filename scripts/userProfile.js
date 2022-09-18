@@ -28,21 +28,25 @@ const numberOfTweetApi = "http://localhost:3000/numberOfTweet.php";
 const getUnFollowUserApi = "http://localhost:3000/getUnFollowUser.php";
 let login_user_id = 11;
 
+//user for api to get inof pf login user
 let loginuersData = new FormData();
 loginuersData.append("user_id", login_user_id);
 
-// given url string
+// given url string to get the search user info
 let url_str = document.URL;
-
 let url = new URL(url_str);
 let search_params = url.searchParams;
-
 // get value of "id" parameter
 const user_id = search_params.get("id");
 
 //to sent the post data in body for get user info
 let userInfoData = new FormData();
 userInfoData.append("user_id", user_id);
+
+// if try to enter userprofile page fo the same user who login by edit url
+if (user_id == login_user_id) {
+  location.replace("myProflie.html");
+}
 
 // for bar of 3 btn
 tweets_btn.addEventListener("click", () => {
@@ -120,12 +124,13 @@ fetch(userInfoApi, {
         loginUserFullName.textContent = data.full_name;
         logintUserName.textContent = data.user_name;
         if (data.profile_photo != "" && data.profile_photo != null) {
-          loginProfilePhoto.style.background = "url(http://localhost:3000/" + data.profile_photo + ")";
+          loginProfilePhoto.style.background =
+            "url(http://localhost:3000/" + data.profile_photo + ")";
           loginProfilePhoto.style.backgroundColor = "none";
           loginProfilePhoto.style.backgroundSize = "cover";
           loginProfilePhoto.style.backgroundRepeat = "no-repeat";
           loginProfilePhoto.style.backgroundPosition = "center";
-        } 
+        }
       }
     });
   }
@@ -191,7 +196,6 @@ fetch(numberOfTweetApi, {
   }
 });
 
-
 //get UnFollow User might like
 fetch(getUnFollowUserApi, {
   method: "POST",
@@ -199,7 +203,7 @@ fetch(getUnFollowUserApi, {
 }).then((res) => {
   if (res.ok) {
     res.json().then((data) => {
-      if (data.done) {  
+      if (data.done) {
         data = data.userInfo;
         data.forEach((user) => {
           let might_like = document.createElement("div");
@@ -208,8 +212,11 @@ fetch(getUnFollowUserApi, {
           let classesToAdd = ["otherUserPhoto", "samll", "xsmall"];
           img.classList.add(...classesToAdd);
           if (user.profile_photo != "" && user.profile_photo != null) {
-            img.src = "http://localhost:3000/" + user.profile_photo + "";
-            img.style.background = "none";
+            img.style.background = "url(http://localhost:3000/" + user.profile_photo + ")";
+            img.style.backgroundColor = "none";
+            img.style.backgroundSize = "cover";
+            img.style.backgroundRepeat = "no-repeat";
+            img.style.backgroundPosition = "center";
           }
           let div = document.createElement("div");
           let h4 = document.createElement("h4");
