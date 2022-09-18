@@ -278,16 +278,7 @@ fetch(getUnFollowUserApi, {
 }).then((res) => {
   if (res.ok) {
     res.json().then((data) => {
-      if (data.done) {
-        //   <div class="might-like">
-        //   <img src="assets/photo-1438761681033-6461ffad8d80.jpeg" class="otherUserPhoto samll xsmall">
-        //   <div>
-        //     <h4 class="fullName">Emily Zugay</h4>
-        //     <span class="userName">@Emily_Zugay10</span>
-        //   </div>
-        //   <button class="btn-follow">Follow</button>
-        // </div>
-        console.log(data.userInfo);
+      if (data.done) {  
         data = data.userInfo;
         data.forEach((user) => {
           let might_like = document.createElement("div");
@@ -297,8 +288,8 @@ fetch(getUnFollowUserApi, {
           img.classList.add(...classesToAdd);
           if (user.profile_photo != "" && user.profile_photo != null) {
             img.src = "http://localhost:3000/" + user.profile_photo + "";
-            img.style.background="none";
-          } 
+            img.style.background = "none";
+          }
           let div = document.createElement("div");
           let h4 = document.createElement("h4");
           h4.classList.add("fullName");
@@ -309,10 +300,13 @@ fetch(getUnFollowUserApi, {
           let button = document.createElement("button");
           button.classList.add("btn-follow");
           button.textContent = "Follow";
-          div.appendChild(span);
           div.appendChild(h4);
-          might_like.appendChild(img);
-          might_like.appendChild(div);
+          div.appendChild(span);
+          let a = document.createElement("a");
+          a.appendChild(img);
+          a.appendChild(div);
+          a.href = "userProfile.html?id=" + user.user_id;
+          might_like.appendChild(a);
           might_like.appendChild(button);
           unfollowUser_container.appendChild(might_like);
         });

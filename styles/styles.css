@@ -440,12 +440,19 @@ input[type="number"] {
   display: flex;
   align-items: center;  
   border-bottom: 2.5px solid rgb(47, 51, 54); 
+  width:90%;
 }
-
+ .might-like a{ 
+  display: flex;   
+  width: 100%;
+  text-decoration: none;
+  color: white;
+  
+} 
 
 
 .might-like .fullName {
-  font-size: 0.8vw;
+  font-size: 1vw;
 }
 .might-like .userName {
   font-size: 0.8vw;
@@ -462,6 +469,7 @@ input[type="number"] {
   border: none;
   width: 5vw;   
   margin-left: auto;
+  font-size: 0.8vw;
 }
 
 .might-like .xsmall {

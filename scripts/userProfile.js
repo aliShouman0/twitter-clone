@@ -191,14 +191,15 @@ fetch(numberOfTweetApi, {
   }
 });
 
+
 //get UnFollow User might like
 fetch(getUnFollowUserApi, {
   method: "POST",
-  body: userInfoData,
+  body: loginuersData,
 }).then((res) => {
   if (res.ok) {
     res.json().then((data) => {
-      if (data.done) {
+      if (data.done) {  
         data = data.userInfo;
         data.forEach((user) => {
           let might_like = document.createElement("div");
@@ -220,10 +221,13 @@ fetch(getUnFollowUserApi, {
           let button = document.createElement("button");
           button.classList.add("btn-follow");
           button.textContent = "Follow";
-          div.appendChild(span);
           div.appendChild(h4);
-          might_like.appendChild(img);
-          might_like.appendChild(div);
+          div.appendChild(span);
+          let a = document.createElement("a");
+          a.appendChild(img);
+          a.appendChild(div);
+          a.href = "userProfile.html?id=" + user.user_id;
+          might_like.appendChild(a);
           might_like.appendChild(button);
           unfollowUser_container.appendChild(might_like);
         });
