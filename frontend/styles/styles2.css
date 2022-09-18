@@ -1,0 +1,825 @@
+/* css reset */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+body {
+  background-color: black;
+}
+
+.overflow-n {
+  overflow: hidden;
+}
+
+.page {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+/* right aside */
+.right-container {
+  color: white;
+  margin: 1rem;
+  width: 25%;
+}
+
+.left-container {
+  color: white;
+  margin-left: auto;
+  margin-right: 0.5rem;
+  width: 25%;
+}
+
+.right-content {
+  background-color: rgb(22, 24, 28);
+  height: auto;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+/* the big rectangle  whole page */
+.container {
+  z-index: 100;
+  width: 50%;
+  /* margin: 0 auto;  */
+  border: 1px solid rgb(47, 51, 54);
+  border-top: none;
+  border-bottom: none;
+  color: white;
+}
+
+/* username and nb of tweet and goback */
+.container .header {
+  display: flex;
+  align-items: flex-start;
+  padding: 0.3rem;
+}
+
+.header .icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 1rem;
+  transition: all 0.3s ease-in-out;
+  padding: 0.5rem;
+  border-radius: 100%;
+}
+
+.header .icon:hover,
+.profile-info .btn:hover {
+  background-color: rgba(171, 171, 171, 0.4);
+}
+
+.header .icon img {
+  width: 100%;
+  height: 100%;
+  color: white;
+  cursor: pointer;
+}
+
+.header .fullName {
+  font-size: 1.5vw;
+  font-weight: bolder;
+  margin-left: 1rem;
+}
+
+.header .tweetsNumber {
+  font-size: 1.2vw;
+  font-weight: lighter;
+  color: rgba(174, 172, 172, 1);
+  margin-left: 1rem;
+}
+
+/* profilePhoto */
+.profilePhoto-container {
+  position: relative;
+  max-height: 30vh;
+}
+
+.profilePhoto-container .profilePhoto-big {
+  background-color: rgba(171, 171, 171, 0.8);
+  height: 10rem;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.9;
+}
+
+.profilePhoto-circle {
+  background-color: rgba(171, 171, 171, 1);
+  height: 7rem;
+  width: 8rem;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 100%;
+  border: 3px solid black;
+  position: absolute;
+  top: 7rem;
+  left: 2%;
+  z-index: 0; 
+}
+
+.otherUserPhoto {
+  height: 4rem;
+  width: 4rem;
+  margin-left: 2%;
+  border-radius: 100%;
+  border: 3px solid black;
+  background-color: rgba(171, 171, 171, 1);
+}
+
+/* profile-info */
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-info .btn {
+  margin: 1rem;
+  padding: 0.6rem;
+  border-radius: 50px;
+  background-color: transparent;
+  color: white;
+  border: 1px solid rgba(174, 172, 172, 0.7);
+  cursor: pointer;
+  font-size: 1vw;
+  font-weight: bolder;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-container {
+  align-self: flex-end;
+}
+
+.info-content {
+  margin: 0 2vw;
+}
+
+.info-content .fullName {
+  font-size: 2.5vw;
+  color: white;
+}
+
+.info-content .userName,
+.joinDate,
+.info-content {
+  font-weight: lighter;
+  font-size: 1vw;
+  padding: 1vh 0;
+  color: rgba(174, 172, 172, 1);
+}
+
+.joinDate > i {
+  padding-right: 0.4vw;
+  margin-top: 10px;
+}
+
+.info-stat {
+  display: flex;
+  margin-top: 6px;
+}
+
+.info-stat > p {
+  margin-right: 30px;
+}
+
+.followers span,
+.following span {
+  color: white;
+  padding-right: 10px;
+}
+
+.horizontal-bar .content {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+}
+.content .bar-btn {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2vw;
+  cursor: pointer;
+}
+
+.content .bar-btn.active {
+  border-bottom: 4px solid #00a3ff;
+  border-radius: 1px;
+}
+
+.user-tweet {
+  display: flex;
+  margin: 1rem 0;
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1rem 0;
+}
+
+.profilePhoto-circle.samll {
+  position: relative;
+  height: 3.8rem;
+  width: 3.8rem;
+  top: 0;
+  left: 2%;
+  z-index: 0; 
+}
+
+.tweet-info {
+  width: 75%;
+  margin: 0 1rem;
+  letter-spacing: 0.8px;
+}
+
+.tweet-info a {
+  color: white;
+  text-decoration: none;
+  transition: all 0.5s ease-in-out;
+}
+
+.tweet-info a h4:hover {
+  color: rgba(103, 103, 103, 0.4);
+}
+
+.tweet-info .fullName {
+  font-size: 1.2vw;
+  font-weight: bolder;
+  transition: all 0.5s ease-in-out;
+}
+
+.tweet-info .userName,
+.tweet-date {
+  font-size: 0.8vw;
+  font-weight: lighter;
+  margin-top: 0.1rem;
+}
+
+.tweet-text {
+  font-size: 1vw;
+  font-weight: lighter;
+  margin: 0.7rem 0;
+}
+
+.nb-like {
+  margin-top: 0.5rem;
+  text-align: end;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.nb-like span {
+  margin-left: 5px;
+}
+
+.nb-like:hover {
+  color: rgb(138, 43, 43, 0.8);
+}
+
+.nb-like i {
+  width: 1vw;
+}
+
+.tweet-media {
+  border-radius: 5px;
+  max-height: 30rem;
+  width: 100%;
+}
+
+/* edit profile */
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(91, 112, 131, 0.4);
+  z-index: 100;
+  transition: all 0.5s ease-in-out;
+  overflow-y: auto;
+}
+
+.edit-container {
+  z-index: 1000;
+  position: absolute;
+  height: 35rem;
+  width: 45rem;
+  background-color: black;
+  top: 2rem;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 8px;
+  color: white;
+  transition: all 0.5s ease-in-out;
+  overflow-y: scroll;
+
+}
+
+.edit-container .close {
+  margin: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.edit-container .close:hover,
+.edit-container .btn-save:hover {
+  color: rgba(91, 112, 131, 0.4);
+}
+
+.edit-container .title {
+  font-size: 2vw;
+  padding: 1rem;
+}
+
+.edit-container .btn-save {
+  background-color: white;
+  color: black;
+  font-weight: bolder;
+  padding: 0.7rem;
+  border-radius: 50px;
+  margin: 0.7rem;
+  margin-left: auto;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.edit-container .btn-save:hover {
+  background-color: rgba(91, 112, 131, 0.2);
+  color: white;
+}
+
+.edit-container .change {
+  opacity: 0.8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.edit-container .change i {
+  opacity: 1;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.edit-container .change i:hover {
+  color: rgb(91, 112, 131, 0.7);
+}
+
+.input-edit {
+  text-align: center;
+  margin-top: 5rem;
+}
+
+.edit-container .input,
+.edit-container .bio {
+  width: 35vw;
+  height: 60px;
+  border-radius: 5px;
+  background-color: black;
+  border: solid 1px rgb(255, 255, 255, 0.6);
+  color: white;
+  font-size: 1.2rem;
+  padding-left: 0.5rem;
+  margin-bottom: 0.7rem;
+  outline: none;
+}
+
+.edit-container .input:focus,
+.edit-container .bio:focus {
+  border: solid 2px #199bf0;
+}
+
+/* to remove arrow from input number */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.edit-container .date {
+  color: #8c8c8c;
+  margin-top: 0.5rem;
+}
+
+.edit-container .date > p {
+  text-align: left;
+  margin-left: 5%;
+  color: white;
+  font-weight: bolder;
+  font-size: 0.9rem;
+  letter-spacing: 0px;
+}
+.edit-container .date select {
+  margin-right: 1%;
+}
+
+.edit-container .month {
+  width: 35%;
+  margin-top: 1.2rem;
+}
+
+.edit-container .day {
+  width: 20%;
+  margin-top: 1.2rem;
+}
+.edit-container .year {
+  width: 30%;
+  margin-top: 1.2rem;
+}
+
+.input-edit input,
+.bio {
+  width: 90%;
+}
+
+.edit-container .bio {
+  height: 80px;
+  padding-top: 2px;
+}
+
+.might-like {
+  padding: 0.8rem;
+  display: flex;
+  align-items: center;
+  border-bottom: 2.5px solid rgb(47, 51, 54);
+  width: 90%;
+}
+.might-like a {
+  display: flex;
+  width: 100%;
+  text-decoration: none;
+  color: white;
+}
+
+.might-like .fullName {
+  font-size: 1vw;
+}
+.might-like .userName {
+  font-size: 0.8vw;
+}
+
+.might-like .btn-follow {
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  background-color: white;
+  color: black;
+  font-weight: lighter;
+  padding: 0.5rem;
+  border: none;
+  width: 5vw;
+  margin-left: auto;
+  font-size: 0.8vw;
+}
+
+.might-like .xsmall {
+  height: 2.8rem;
+  width: 2.8rem;
+  margin-right: 0.3rem;
+}
+
+.btn-follow:hover {
+  background-color: rgba(91, 112, 131, 0.2);
+  color: white;
+}
+
+/* side bar */
+
+.links a {
+  text-decoration: none;
+  color: white;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.links {
+  background-color: #000000;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 5px 0 0 2%;
+  width: 23%;
+  height: 100%;
+  position: fixed;
+  color: white;
+}
+
+.links-item {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.links-item a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  padding: 12px 25px 12px 8px;
+  width: fit-content;
+  color: white;
+}
+
+.links-item a:hover,
+.logout a:hover {
+  background-color: #181818;
+  border-radius: 50px;
+}
+
+.links-item a i {
+  font-size: 25px;
+  margin-right: 15px;
+}
+
+.links-item a:first-child {
+  padding: 8px 8px;
+}
+
+.links-item a:first-child i {
+  margin: 0;
+}
+
+.tweet-button {
+  width: 60%;
+  height: 52px;
+  border: none;
+  border-radius: 50px;
+  color: white;
+  background-color: #1d9bf0;
+  font-size: 16px;
+  font-weight: 700;
+  margin-top: 10%;
+  transition-duration: 0.2s;
+}
+
+.tweet-button:hover {
+  background-color: #1a8cd8;
+  cursor: pointer;
+}
+
+.logout-popup {
+  height: 60px;
+  width: 250px;
+  margin: 3% 5% 3% 0%;
+  background-color: #000000;
+  border-radius: 20px;
+  border: 2px solid rgba(117, 114, 106, 0.5);
+  display: none;
+}
+
+.logout-popup:hover {
+  background-color: #181818;
+}
+
+.on {
+  display: block;
+  transition: all 1s ease-in-out;
+}
+
+.logout-button {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  cursor: pointer;
+  color: white;
+  background: transparent;
+  font-size: 16px;
+}
+
+.logout {
+  width: 100%;
+  height: 50px;
+  margin-bottom: 12%;
+}
+
+.logout a {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.logout-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin: 0 0.8rem;
+  background-color: rgba(171, 171, 171, 1);
+}
+
+.user-details {
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.logout-name {
+  font-weight: bold;
+  font-size: 1.5vw;
+}
+
+.logout-user {
+  color: grey;
+}
+
+/* tweet */
+.tweet-on {
+  position: absolute;
+  width: 45%;
+  height: auto;
+  margin-top: 5%;
+  left: 27%;
+  bottom: 45%;
+  z-index: 10000;
+  background-color: #000000;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  transition: all 1s ease-in-out; 
+}
+
+.tweet-on-item {
+  width: 100%;
+}
+
+.tweet-on-button {
+  margin: 2% 1%;
+  width: 8%;
+  height: 100%;
+  font-size: 20px;
+  border-radius: 50px;
+  border: none;
+  color: white;
+  background-color: transparent;
+}
+
+.tweet-on-button:hover {
+  transition: all 1s ease-in-out;
+  background-color: #181818;
+  cursor: pointer;
+}
+
+.onpop {
+  border-bottom: 1px solid rgba(117, 114, 106, 0.5);
+  margin-top: 2%;
+  height: 150px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.head-text {
+  margin-top: 3%;
+  color: white;
+  background-color: transparent;
+  height: auto;
+  width: 80%;
+  height: 30%;
+  font-size: 2vw;
+  padding: 1vw;
+  border: none;
+  overflow-y: auto;
+  border: 1px solid rgb(48, 48, 48);
+  margin: 0 0.8rem;
+}
+
+.head-text:focus {
+  outline: none;
+}
+
+.label {
+  color: #1a8cd9;
+  cursor: pointer;
+  margin: auto;
+}
+
+.file {
+  display: none;
+  visibility: none;
+  width: 5%;
+  height: 5%;
+  margin: -1% 3% 2% 15%;
+  color: #1a8cd8;
+}
+
+.popup-button {
+  width: 15%;
+  height: 35px;
+  border: none;
+  border-radius: 50px;
+  color: white;
+  background-color: #1d9bf0;
+  font-size: 12px;
+  font-weight: 700;
+  transition-duration: 0.2s;
+  margin: 2%;
+}
+
+.popup-button:hover {
+  background-color: #1a8cd8;
+  cursor: pointer;
+}
+
+.submit-onpop {
+  display: flex;
+  justify-content: space-between;
+}
+
+.d-none {
+  display: none;
+  transition: all 0.5s ease-in-out;
+}
+
+
+
+
+ 
+@media only screen and (max-width: 980px) {
+  .container {
+    margin: 0 auto;
+  }
+
+  .profile-info .btn {
+    font-size: 1.5vw;
+  }
+
+  .info-content .userName,
+  .joinDate,
+  .info-content {
+    font-size: 2vw;
+  }
+
+  .content .bar-btn {
+    font-size: 1.8vw;
+  }
+
+  .tweet-info .fullName {
+    font-size: 2vw;
+  }
+
+  .tweet-info .userName,
+  .tweet-date {
+    font-size: 1.5vw;
+  }
+
+  .tweet-text {
+    font-size: 2vw;
+  }
+
+  .profilePhoto-circle {
+    height: 5rem;
+    width: 5rem;
+    top: 4rem;
+    z-index: 0; 
+  }
+
+  .profilePhoto-container .profilePhoto-big {
+    height: 7rem;
+    width: 100%;
+  }
+
+  .profilePhoto-circle.samll,
+  .otherUserPhoto {
+    height: 3rem;
+    width: 3rem;
+    z-index: 0;
+  }
+
+  .edit-container {
+    height: 70%;
+    width: 80vw;
+  }
+
+  .nb-like span {
+    margin-left: 1rem;
+    font-size: 2vw;
+  }
+
+  .edit-container .input,
+  .edit-container .bio {
+    width: 45vw;
+    height: 80px;
+    margin: 15px 5px;
+  }
+  .year {
+    margin-bottom: 22rem;
+  }
+
+  .edit-container .date > p {
+    margin-left: 20%;
+  }
+
+  .right-container,
+  .left-container {
+    display: none;
+  }
+}
+

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Profile</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="icon" href="assets/twitter.ico">
+  <link rel="stylesheet" href="styles/styles2.css">
+</head>
+
+<body id="body">
+  <!-- overlay for edit profile -->
+  <div id="overlay" class="overlay d-none"></div>
+
+  <div class="page">
+
+    <!-- left side bar -->
+    <div class="left-container">
+      <!-- <p class="container-title">You might like</p> -->
+      <div class="links">
+        <div class="links-item">
+          <a href="">
+            <span><i class="fa-brands fa-twitter"></i></span>
+          </a>
+          <a href="">
+            <i class="fa fa-home"></i>
+            <span class="info">Home</span>
+          </a>
+          <a href="myProflie.html">
+            <i class="fa-regular fa-user"></i>
+            <span class="info">Profile</span>
+          </a>
+          <a href="">
+            <i class="fa fa-ellipsis"></i>
+            <span class="info">More</span>
+          </a>
+          <button class="tweet-button" id="tweet-but">Tweet</button>
+        </div>
+        <div class="logout-popup" id="logout">
+          <button class="logout-button">Logout <p class="currentUserName"> </p> </button>
+        </div>
+        <div class="user-logout">
+          <div class="logout" id="popup">
+            <a href="">
+              <!-- circle photo-->
+
+              <div class="logout-image userProfilePhoto"></div>
+              <!-- <img src="assets/user.jpg" alt="user-profile" class="logout-image"> -->
+              <div class="user-details">
+                <span class="logout-name currentUserFullName"> </span>
+                <p class="logout-user currentUserName"> </p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+
+    <!-- tweets and info -->
+    <div class="container">
+
+      <div class="header">
+        <div class="icon" onclick="history.back()">
+          <img src="assets/go_back .png" alt="go_back">
+        </div>
+        <div class="header-content">
+          <p class="fullName currentUserFullName">
+            
+          </p>
+          <small class="tweetsNumber">
+            <span id="numberOfTweet">0</span> Tweets</small>
+        </div>
+      </div>
+
+      <div class="profilePhoto-container">
+        <!--big photo  -->
+        <div class="profilePhoto-big"></div>
+        <!-- circle photo-->
+        <div class="profilePhoto-circle userProfilePhoto"></div>
+      </div>
+
+      <div class="profile-info">
+        <div class="btn-container">
+          <button class="btn" id="edit_profile">Edit profile</button>
+        </div>
+        <div class="info-content">
+          <h2 class="fullName currentUserFullName"> </h2>
+          <p class="userName currentUserName "> </p>
+          <p class="bio" id="bio"></p>
+          <p class="joinDate"><i class="fa-solid fa-calendar-days"></i>Joined <span id="joinDate">October 2021</span>
+          </p>
+          <div class="info-stat">
+            <p class="following"><span id="following-nb">920</span>Following</p>
+            <p class="followers"><span id="followers-nb">112</span>Followers</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="horizontal-bar">
+        <div class="content">
+          <p id="tweets_btn" class="bar-btn active">Tweets</p>
+          <p id="media_btn" class="bar-btn  ">Media</p>
+          <p id="liked_btn" class="bar-btn ">Likes</p>
+        </div>
+      </div>
+
+      <!-- tweet components  -->
+      <div id="tweet" class="tweets-container  ">
+      </div>
+
+      <!-- tweet media components  -->
+      <div id="media_tweet" class="tweets-container d-none ">
+
+      </div>
+
+      <!--liked tweets      -->
+      <div id="liked_tweet" class="tweets-container d-none ">
+
+      </div>
+
+      <!--edit profile  -->
+      <div id="edit_container" class="edit-container  d-none ">
+        <form>
+          <div class="header">
+            <div class="close" id="close">
+              <i class="fa-regular fa-circle-xmark fa-2x"></i>
+            </div>
+            <span class="title">Edit profile</span>
+            <button class="btn-save" id="btn-save">Save</button>
+          </div>
+          <div class="profilePhoto-container ">
+            <!--big photo  -->
+            <div class="profilePhoto-big change">
+              <input type="file" class="img-upload d-none" id="img-upload-big"
+                accept="image/png, image/gif, image/jpeg">
+              <label for="img-upload-big">
+                <i class="fa-solid fa-camera-retro"></i></label>
+            </div>
+            <!-- circle photo-->
+            <div class="profilePhoto-circle change userProfilePhoto">
+              <input type="file" class="img-upload d-none" id="img-upload-small"
+                accept="image/png, image/gif, image/jpeg">
+              <label for="img-upload-small">
+                <i class="fa-solid fa-camera-retro"></i></label>
+            </div>
+          </div>
+          <div class="input-edit">
+            <input type="text" placeholder="Name" id="fullName" class="input" required>
+            <!-- <input type="number" placeholder="Phone" id="phone" class="input d-none"> -->
+            <textarea class="bio" cols="30" placeholder="Bio" id="bio_input"></textarea>
+            <input type="password" placeholder="password" id="password" class="input">
+            <input type="password" placeholder="Confirm password" id="confirm_password" class="input  ">
+
+            <div class="date">
+              <p><b>Date of birth</b></p>
+              <select class="input month" id="month" name="month" required>
+                <option value='' selected disabled>Month</option>
+                <option value='1'>Janaury</option>
+                <option value='2'>February</option>
+                <option value='3'>March</option>
+                <option value='4'>April</option>
+                <option value='5'>May</option>
+                <option value='6'>June</option>
+                <option value='7'>July</option>
+                <option value='8'>August</option>
+                <option value='9'>September</option>
+                <option value='10'>October</option>
+                <option value='11'>November</option>
+                <option value='12'>December</option>
+              </select>
+              <select class="input day" id="day" name="day" required>
+                <option disabled selected value="">Day</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+                <option value="31">31</option>
+              </select>
+              <select class="input year" id="year" name="year" required>
+                <option value='' selected disabled>Year</option>
+                <option value="1998">1998</option>
+                <option value="1999">1999</option>
+                <option value="2000">2000</option>
+                <option value="2001">2001</option>
+                <option value="2002">2002</option>
+                <option value="2003">2003</option>
+              </select>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- right -->
+    <!-- pepole You might like -->
+    <div class="right-container">
+      <div class="right-content">
+        <p class="container-title">You might like</p>
+        <div id="unfollowUser">
+
+        </div>
+      </div>
+
+    </div>
+
+    <div class="tweet-on d-none" id="tweet-on">
+      <div class="tweet-on-item">
+        <button class="tweet-on-button" id="close_pop">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="tweet-on-item">
+
+        <div class="head-item tweet onpop ">
+          <div class="logout-image userProfilePhoto"></div>
+          <textarea class="head-text" placeholder="What's happening?" id="newTweetText" ></textarea>
+        </div>
+
+        <div class="head-item submit submit-onpop">
+          <label for="input-image" class="label" title="media"><i class="fa fa-image"></i></label>
+          <input type="file" class="file" id="input-image" accept="image/png, image/gif, image/jpeg" />
+          <button class="popup-button" id="newTweet" >Tweet</button>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+  <script src="scripts/myProflie.js"></script>
+</body>
+
+</html>

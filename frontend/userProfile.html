@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Profile</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="icon" href="assets/twitter.ico">
+  <link rel="stylesheet" href="styles/styles2.css">
+</head>
+
+<body id="body">
+  <!-- overlay for edit profile -->
+  <div id="overlay" class="overlay d-none"></div>
+  <div class="page">
+
+    <!-- left side bar -->
+    <div class="left-container">
+      <!-- <p class="container-title">You might like</p> -->
+      <div class="links">
+        <div class="links-item">
+          <a href="">
+            <span><i class="fa-brands fa-twitter"></i></span>
+          </a>
+          <a href="">
+            <i class="fa fa-home"></i>
+            <span class="info">Home</span>
+          </a>
+          <a href="myProflie.html">
+            <i class="fa-regular fa-user"></i>
+            <span class="info">Profile</span>
+          </a>
+          <a href="">
+            <i class="fa fa-ellipsis"></i>
+            <span class="info">More</span>
+          </a>
+          <button class="tweet-button" id="tweet-but">Tweet</button>
+        </div>
+        <div class="logout-popup" id="logout">
+          <button class="logout-button">Logout <p class="currentUserName"> </p> </button>
+        </div>
+        <div class="user-logout">
+          <div class="logout" id="popup">
+            <a href="">
+              <!-- circle photo-->
+              <div class="logout-image " id="loginProfilePhoto"></div>
+              <!-- <img src="assets/user.jpg" alt="user-profile" class="logout-image"> -->
+              <div class="user-details">
+                <span class="logout-name " id="loginUserFullName"> </span>
+                <p class="logout-user " id="logintUserName"> </p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- tweets and info -->
+    <div class="container">
+
+      <div class="header">
+        <div class="icon" onclick="history.back()">
+          <img src="assets/go_back .png" alt="go_back"> </div>
+        <div class="header-content">
+          <p class="fullName currentUserFullName">
+           
+          </p>
+          <small class="tweetsNumber">
+            <span id="numberOfTweet">0</span> Tweets</small>
+        </div>
+      </div>
+
+      <div class="profilePhoto-container">
+        <!--big photo  -->
+        <div class="profilePhoto-big"></div>
+        <!-- circle photo-->
+        <div class="profilePhoto-circle userProfilePhoto"></div>
+      </div>
+
+      <div class="profile-info">
+        <div class="btn-container">
+          <button class="btn" id="follow-un">Follow</button>
+          <button class="btn" id="block">Block</button>
+        </div>
+        <div class="info-content">
+          <h2 class="fullName currentUserFullName"> </h2>
+          <p class="userName currentUserName "> </p>
+          <p class="bio" id="bio"></p>
+          <p class="joinDate"><i class="fa-solid fa-calendar-days"></i>Joined <span id="joinDate">October 2021</span>
+          </p>
+          <div class="info-stat">
+            <p class="following"><span id="following-nb"> </span>Following</p>
+            <p class="followers"><span id="followers-nb"> </span>Followers</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="horizontal-bar">
+        <div class="content">
+          <p id="tweets_btn" class="bar-btn active">Tweets</p>
+          <p id="media_btn" class="bar-btn  ">Media</p>
+          <p id="liked_btn" class="bar-btn ">Likes</p>
+        </div>
+      </div>
+
+      <!-- tweet components  -->
+      <div id="tweet" class="tweets-container  ">
+
+      </div>
+
+      <!-- tweet media components  -->
+      <div id="media_tweet" class="tweets-container d-none ">
+
+      </div>
+
+      <!--liked tweets      -->
+      <div id="liked_tweet" class="tweets-container d-none ">
+
+      </div>
+
+
+    </div>
+
+    <!-- right -->
+    <!-- pepole You might like -->
+    <div class="right-container">
+      <div class="right-content">
+        <p class="container-title">You might like</p>
+        <div id="unfollowUser">
+
+        </div>
+      </div>
+
+    </div>
+
+    <div class="tweet-on d-none" id="tweet-on">
+      <div class="tweet-on-item">
+        <button class="tweet-on-button" id="close_pop">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="tweet-on-item">
+
+        <div class="head-item tweet onpop "> 
+          <div class="logout-image " id="loginProfilePhoto2"></div>
+
+          <textarea class="head-text" placeholder="What's happening?" id="newTweetText"></textarea>
+        </div>
+
+        <div class="head-item submit submit-onpop">
+          <label for="input-image" class="label" title="media"><i class="fa fa-image"></i></label>
+          <input type="file" class="file" id="input-image" accept="image/png, image/gif, image/jpeg" />
+          <button class="popup-button" id="newTweet" >Tweet</button>
+        </div>
+      </div>
+
+
+    </div>
+    <script src="scripts/userProfile.js"></script>
+</body>
+
+</html>
