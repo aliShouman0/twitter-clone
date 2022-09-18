@@ -1,7 +1,4 @@
 <?php
-
-header("Access-Control-Allow-Origin:*");
-header("Access-Control-Allow-Headers:*");
 include("connection.php");
 $done = false;
 $row = [];
@@ -17,10 +14,8 @@ if (
   if ($query->execute()) {
 
     $array = $query->get_result();
-    $row = $array->fetch_assoc();
+    $row = $array->fetch_assoc()["count_following"];
     $done = true;
-  } else {
-    echo  $mysqli->error;
   }
 }
 

@@ -26,9 +26,9 @@ CREATE TABLE IF NOT EXISTS `twitterdb`.`tweets` (
   `tweet_date`  VARCHAR(255) NOT NULL,
   `tweet_text` VARCHAR(255) NULL,
   `tweet_photo` VARCHAR(255) NULL,
-  ` user_id` INT UNSIGNED NOT NULL, 
+  `user_id` INT UNSIGNED NOT NULL, 
   CONSTRAINT `fk_tweet_users`
-    FOREIGN KEY (` user_id`)
+    FOREIGN KEY (`user_id`)
     REFERENCES `twitterdb`.`users` (`user_id`) ) ;
 
 

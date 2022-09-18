@@ -1,27 +1,23 @@
 <?php
-
-header("Access-Control-Allow-Origin:*");
-header("Access-Control-Allow-Headers:*");
 include("connection.php");
 $done = false;
 $row = [];
 
 if (
-  isset($_POST["follow_user_id"])
+  isset($_POST["user_id"])
 ) {
-  $follow_user_id = $_POST["follow_user_id"];
+  $user_id = $_POST["user_id"];
 
   $query = $mysqli->prepare("select count(user_id) as count_follower from follows where follow_user_id=?  ");
-  $query->bind_param("i", $follow_user_id);
+  $query->bind_param("i", $user_id);
 
   if ($query->execute()) {
 
     $array = $query->get_result();
-    $row = $array->fetch_assoc();
+    $row = $array->fetch_assoc()["count_follower"];
     $done = true;
-  } else {
-    echo  $mysqli->error;
-  }
+  } 
+  
 }
 
 $result = [

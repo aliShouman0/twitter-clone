@@ -1,10 +1,7 @@
 <?php
-
-header("Access-Control-Allow-Origin:*");
-header("Access-Control-Allow-Headers:*");
-$done=false;
-
 include("connection.php");
+
+$done=false;
 
 if (
     isset($_POST["tweet_id"])
