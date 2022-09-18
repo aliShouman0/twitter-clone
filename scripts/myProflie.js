@@ -34,7 +34,7 @@ const btn_save = document.querySelector("#btn-save");
 const img_upload_banner = document.querySelector("#img-upload-big");
 const img_upload_photo = document.querySelector("#img-upload-small");
 
-const user_id = 121;
+const user_id = 11;
 
 // api
 const userInfoApi = "http://localhost:3000/getUserInfo.php";
@@ -45,6 +45,7 @@ const numberOfTweetApi = "http://localhost:3000/numberOfTweet.php";
 const getUnFollowUserApi = "http://localhost:3000/getUnFollowUser.php";
 const FollowApi = "http://localhost:3000/follow.php";
 const getTweetApi = "http://localhost:3000/getUserTweet.php";
+const getLikedTweetApi = "http://localhost:3000/getLikedTweet.php";
 
 //to sent the post data in body for get user info
 let userInfoData = new FormData();
@@ -286,8 +287,67 @@ const bluidTweet = (tweet) => {
   }
 };
 
-// bluid media tweet info
-const mediatweet = (tweet) => {};
+const bluidLikedTweet = (tweet) => {
+  // get user info
+  let tweetUserData = new FormData();
+  tweetUserData.append("user_id", tweet.user_id);
+  let user_tweet = document.createElement("div");
+  user_tweet.classList.add("user-tweet");
+  let imgUser = document.createElement("img");
+  let classesToAdd = ["otherUserPhoto", "samll"];
+  imgUser.classList.add(...classesToAdd);
+  let tweet_info = document.createElement("div");
+  tweet_info.classList.add("tweet-info");
+  let h4 = document.createElement("h4");
+  h4.classList.add("fullName");
+  let span = document.createElement("span");
+  span.classList.add("userName");
+  let dataSpan = document.createElement("span");
+  dataSpan.classList.add("tweet-date");
+  dataSpan.textContent = tweet.tweet_date;
+  let p = document.createElement("p");
+  p.classList.add("tweet-text");
+  p.textContent = tweet.tweet_text;
+  let nbLike = document.createElement("div");
+  nbLike.classList.add("nb-like");
+  let i = document.createElement("i");
+  i.classList.add("fa-regular");
+  i.classList.add("fa-heart");
+  let nb = document.createElement("span");
+  nb.textContent = 456;
+  nbLike.appendChild(i);
+  nbLike.appendChild(nb);
+  tweet_info.appendChild(h4);
+  tweet_info.appendChild(span);
+  tweet_info.appendChild(dataSpan);
+  tweet_info.appendChild(p);
+  if (tweet.tweet_photo != null && tweet.tweet_photo != "") {
+    let tweet_img = document.createElement("img");
+    tweet_img.classList.add("tweet-media");
+    tweet_img.src = "http://localhost:3000/" + tweet.tweet_photo;
+    tweet_info.appendChild(tweet_img);
+  }
+  tweet_info.appendChild(nbLike);
+  user_tweet.appendChild(imgUser);
+  user_tweet.appendChild(tweet_info);
+
+  fetch(userInfoApi, {
+    method: "POST",
+    body: tweetUserData,
+  }).then((res) => {
+    if (res.ok) {
+      res.json().then((data) => {
+        if (data.done) {
+          data = data.userInfo;
+          imgUser.src = "http://localhost:3000/" + data.profile_photo;
+          h4.textContent = data.full_name;
+          span.textContent = data.user_name; 
+          liked_tweet.appendChild(user_tweet);
+        }
+      });
+    }
+  });
+};
 
 //getTweet
 fetch(getTweetApi, {
@@ -297,10 +357,27 @@ fetch(getTweetApi, {
   if (res.ok) {
     res.json().then((data) => {
       if (data.done) {
-        console.log(data);
         data = data.tweets;
         data.forEach((tweet) => {
           bluidTweet(tweet);
+        });
+      }
+    });
+  }
+});
+
+//get liked Tweet
+fetch(getLikedTweetApi, {
+  method: "POST",
+  body: userInfoData,
+}).then((res) => {
+  if (res.ok) {
+    res.json().then((data) => {
+      if (data.done) {
+        console.log(data);
+        data = data.tweets;
+        data.forEach((tweet) => {
+          bluidLikedTweet(tweet);
         });
       }
     });
@@ -321,7 +398,6 @@ fetch(userInfoApi, {
         profilePhoto(data.profile_photo, data.profile_photo_banner);
         bio.textContent = data.bio;
         fillEditProfile(data.full_name, data.bio, data.birth_day);
-        console.log(data);
       }
     });
   }
