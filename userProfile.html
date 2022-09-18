@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Profile</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="icon" href="assets/twitter.ico">
+  <link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<body id="body">
+  <div class="page">
+
+    <!-- left side bar -->
+    <div class="left-container">
+      <!-- <p class="container-title">You might like</p> -->
+      <div class="links">
+        <div class="links-item">
+          <a href="">
+            <span><i class="fa-brands fa-twitter"></i></span>
+          </a>
+          <a href="">
+            <i class="fa fa-home"></i>
+            <span class="info">Home</span>
+          </a>
+          <a href="">
+            <i class="fa-regular fa-user"></i>
+            <span class="info">Profile</span>
+          </a>
+          <a href="">
+            <i class="fa fa-ellipsis"></i>
+            <span class="info">More</span>
+          </a>
+          <button class="tweet-button" id="tweet-but">Tweet</button>
+        </div>
+        <div class="logout-popup" id="logout">
+          <button class="logout-button">Logout <p class="currentUserName">@Emily_Zugay10</p> </button>
+        </div>
+        <div class="user-logout">
+          <div class="logout" id="popup">
+            <a href="">
+              <!-- circle photo-->
+
+              <div class="logout-image " id="loginProfilePhoto"></div>
+              <!-- <img src="assets/user.jpg" alt="user-profile" class="logout-image"> -->
+              <div class="user-details">
+                <span class="logout-name " id="loginUserFullName">Emily Zugay</span>
+                <p class="logout-user " id="logintUserName">@Emily_Zugay10</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+
+    <!-- tweets and info -->
+    <div class="container">
+
+      <div class="header">
+        <div class="icon">
+          <img src="assets/go_back .png" alt="go_back"> </div>
+        <div class="header-content">
+          <p class="fullName currentUserFullName">
+            Emily Zugay
+          </p>
+          <small class="tweetsNumber">
+            <span id="numberOfTweet">0</span> Tweets</small>
+        </div>
+      </div>
+
+      <div class="profilePhoto-container">
+        <!--big photo  -->
+        <div class="profilePhoto-big"></div>
+        <!-- circle photo-->
+        <div class="profilePhoto-circle userProfilePhoto"></div>
+      </div>
+
+      <div class="profile-info">
+        <button class="btn" id="follow">Follow</button>
+        <div class="info-content">
+          <h2 class="fullName currentUserFullName">Emily Zugay</h2>
+          <p class="userName currentUserName ">@Emily_Zugay10</p>
+          <p class="bio" id="bio"></p>
+          <p class="joinDate"><i class="fa-solid fa-calendar-days"></i>Joined <span id="joinDate">October 2021</span>
+          </p>
+          <div class="info-stat">
+            <p class="following"><span id="following-nb">920</span>Following</p>
+            <p class="followers"><span id="followers-nb">112</span>Followers</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="horizontal-bar">
+        <div class="content">
+          <p id="tweets_btn" class="bar-btn active">Tweets</p>
+          <p id="media_btn" class="bar-btn  ">Media</p>
+          <p id="liked_btn" class="bar-btn ">Likes</p>
+        </div>
+      </div>
+
+      <!-- tweet components  -->
+      <div id="tweet" class="tweets-container  ">
+        <div class="user-tweet">
+          <div class="profilePhoto-circle samll userProfilePhoto"></div>
+          <div class="tweet-info">
+            <h4 class="fullName currentUserFullName">Emily Zugay</h4>
+            <span class="userName currentUserName ">@Emily_Zugay10</span>
+            <span class="tweet-date">October 2021</span>
+
+            <p class="tweet-text">A new version (v18.8.0) of
+              @nodejs
+              is out!
+              - Adds experimental runtime user-land snapshots
+              - npm@8.18.0 including the new `npm query` cmd
+              - and much more from our awesome collaborators!
+              ⬇️ Get it now:
+              $ nvm install 18.8.0</p>
+            <div class="nb-like">
+              <i class="fa-regular fa-heart"></i><span>498</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- tweet media components  -->
+      <div id="media_tweet" class="tweets-container d-none ">
+        <div class="user-tweet">
+          <div class="profilePhoto-circle samll userProfilePhoto"></div>
+          <div class="tweet-info">
+            <h4 class="fullName currentUserFullName">Emily Zugay</h4>
+            <span class="userName currentUserName ">@Emily_Zugay10</span>
+            <span class="tweet-date">October 2021</span>
+            <p class="tweet-text">A new version (v18.8.0) of
+              @nodejs
+              is out!
+              - Adds experimental runtime user-land snapshots
+              - npm@8.18.0 including the new `npm query` cmd
+              - and much more from our awesome collaborators!
+              ⬇️ Get it now:
+              $ nvm install 18.8.0</p>
+
+            <img src="assets/FaWXiavVEAYYCjX.jpeg" class="tweet-media" alt=" tweet media ">
+            <div class="nb-like">
+              <i class="fa-regular fa-heart"></i><span>498</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--liked tweets      -->
+      <div id="liked_tweet" class="tweets-container d-none ">
+        <div class="user-tweet">
+          <img src="assets/photo-1438761681033-6461ffad8d80.jpeg" class="otherUserPhoto samll">
+          <div class="tweet-info">
+            <h4 class="fullName  ">Joey Arhar</h4>
+            <sap class="userName ">@matteocollina</sap>
+            <span class="tweet-date">October 2019</span>
+            <p class="tweet-text">A new version (v18.8.0) of
+              I just discovered that baby owls sleep on their stomachs cause their heads are too heavy and I can’t stop
+              laughing</p>
+            <img src="assets/FbgvJBhUUAA9tgQ.jpeg" class="tweet-media" alt=" tweet media ">
+            <div class="nb-like">
+              <i class="fa-regular fa-heart"></i><span>498</span>
+            </div>
+          </div>
+          </img>
+        </div>
+      </div>
+
+
+    </div>
+
+    <!-- right -->
+    <!-- pepole You might like -->
+    <div class="right-container">
+      <div class="right-content">
+        <p class="container-title">You might like</p>
+        <div id="unfollowUser">
+
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+  <script src="scripts/userProfile.js"></script>
+</body>
+
+</html>
