@@ -21,6 +21,7 @@ const followers_nb = document.querySelector("#followers-nb ");
 const numberOfTweet = document.querySelector("#numberOfTweet");
 const unfollowUser_container = document.querySelector("#unfollowUser");
 const tweet_container = document.querySelector("#tweet");
+const media_tweet_container = document.querySelector("#media_tweet");
 
 //edit profile
 const bio = document.querySelector("#bio ");
@@ -235,24 +236,7 @@ const followUser = (id) => {
   });
 };
 
-// bluid tweet info
-const normalTweet = (tweet) => {
-  // <div class="user-tweet">
-  //   <div class="profilePhoto-circle samll userProfilePhoto"></div>
-  //   <div class="tweet-info">
-  //     <h4 class="fullName currentUserFullName">Emily Zugay</h4>
-  //     <span class="userName currentUserName ">@Emily_Zugay10</span>
-  //     <span class="tweet-date">October 2021</span>
-
-  //     <p class="tweet-text">
-  //       A new version (v18.8.0)
-  //     </p>
-  //     <div class="nb-like">
-  //       <i class="fa-regular fa-heart"></i>
-  //       <span>498</span>
-  //     </div>
-  //   </div>
-  // </div>;
+const bluidTweet = (tweet) => {
   let user_tweet = document.createElement("div");
   user_tweet.classList.add("user-tweet");
   let img = document.createElement("div");
@@ -272,6 +256,7 @@ const normalTweet = (tweet) => {
   let p = document.createElement("p");
   p.classList.add("tweet-text");
   p.textContent = tweet.tweet_text;
+
   let nbLike = document.createElement("div");
   nbLike.classList.add("nb-like");
   let i = document.createElement("i");
@@ -285,10 +270,20 @@ const normalTweet = (tweet) => {
   tweet_info.appendChild(span);
   tweet_info.appendChild(dataSpan);
   tweet_info.appendChild(p);
+  if (tweet.tweet_photo != null && tweet.tweet_photo != "") {
+    let tweet_img = document.createElement("img");
+    tweet_img.classList.add("tweet-media");
+    tweet_img.src = "http://localhost:3000/" + tweet.tweet_photo;
+    tweet_info.appendChild(tweet_img);
+  }
   tweet_info.appendChild(nbLike);
   user_tweet.appendChild(img);
   user_tweet.appendChild(tweet_info);
-  tweet_container.appendChild(user_tweet);
+  if (tweet.tweet_photo != null && tweet.tweet_photo != "") {
+    media_tweet_container.appendChild(user_tweet);
+  } else {
+    tweet_container.appendChild(user_tweet);
+  }
 };
 
 // bluid media tweet info
@@ -305,11 +300,7 @@ fetch(getTweetApi, {
         console.log(data);
         data = data.tweets;
         data.forEach((tweet) => {
-          if (tweet.tweet_photo != null && tweet.tweet_photo != "") {
-            mediatweet(tweet);
-          } else {
-            normalTweet(tweet);
-          }
+          bluidTweet(tweet);
         });
       }
     });
