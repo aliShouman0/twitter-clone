@@ -16,7 +16,7 @@ if (
   if ($query->execute()) {
     $array = $query->get_result();
     $row = $array->fetch_assoc();
-    if ($row= NULL) {
+    if ($row != NULL) {
       $isFollow = true;
     }
     $done = true;
