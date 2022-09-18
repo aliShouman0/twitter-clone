@@ -17,6 +17,9 @@ const joinDate = document.querySelector("#joinDate ");
 const bannerProfilePhoto = document.querySelectorAll(".profilePhoto-big ");
 const userProfilePhoto = document.querySelectorAll(".userProfilePhoto ");
 const following_nb = document.querySelector("#following-nb ");
+const followers_nb = document.querySelector("#followers-nb ");
+const numberOfTweet = document.querySelector("#numberOfTweet");
+
 //edit profile
 const bio = document.querySelector("#bio ");
 const bio_input = document.querySelector("#bio_input ");
@@ -34,6 +37,12 @@ const user_id = 11;
 const userInfoApi = "http://localhost:3000/getUserInfo.php";
 const editProfileApi = "http://localhost:3000/editprofile.php";
 const getfollowingApi = "http://localhost:3000/getfollowing.php";
+const getFollowersApi = "http://localhost:3000/getfollower.php";
+const numberOfTweetApi = "http://localhost:3000/numberOfTweet.php";
+
+//to sent the post data in body for get user info
+let userInfoData = new FormData();
+userInfoData.append("user_id", user_id);
 
 // edit profile
 edit_profile.addEventListener("click", () => {
@@ -199,9 +208,6 @@ const sendNewInfo = () => {
 //end edit profile
 
 // get user info
-//to sent the post data in body
-let userInfoData = new FormData();
-userInfoData.append("user_id", user_id);
 fetch(userInfoApi, {
   method: "POST",
   body: userInfoData,
@@ -229,7 +235,35 @@ fetch(getfollowingApi, {
   if (res.ok) {
     res.json().then((data) => {
       if (data.done) {
-        following_nb.textContent = data.number_of_following.count_following;
+        following_nb.textContent = data.number_of_following;
+      }
+    });
+  }
+});
+
+//get Followers
+fetch(getFollowersApi, {
+  method: "POST",
+  body: userInfoData,
+}).then((res) => {
+  if (res.ok) {
+    res.json().then((data) => {
+      if (data.done) {
+        followers_nb.textContent = data.number_of_follower;
+      }
+    });
+  }
+});
+
+//get numberOfTweet
+fetch(numberOfTweetApi, {
+  method: "POST",
+  body: userInfoData,
+}).then((res) => {
+  if (res.ok) {
+    res.json().then((data) => {
+      if (data.done) {
+        numberOfTweet.textContent = data.number_of_tweets;
       }
     });
   }
