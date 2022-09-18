@@ -1,24 +1,92 @@
-const popup=document.querySelector('#popup');
+const tweet=document.querySelector('#tweet-but');
+const close=document.querySelector('#close');
+const pop=document.querySelector('#tweet-on');
 const logout=document.querySelector('#logout');
 const profile=document.querySelector('#profile');
-const tweet=document.querySelector('#tweet-but');
-const pop=document.querySelector('#tweet-on');
-const home=document.querySelector('#home');
-const close=document.querySelector('#close');
-const more=document.querySelector('#more');
-const theme=document.querySelector('#theme');
-const modetype=document.querySelector('#mode-type');
-const option=document.querySelector('#option');
-const featurs=document.querySelector('#features');
-const element=document.querySelectorAll('.element');
-const logo=document.querySelector('#logo');
+const popup=document.querySelector('#popup');
+const add=document.querySelector('#tweet');
+const text=document.querySelector('#tweet_text');
+const image=document.querySelector('#input-image');
 
 
-popup.addEventListener('click',() =>{
-    logout.classList.toggle('on');
-    profile.classList.toggle('down');
-    more.classList.toggle('disable');
+
+const n=document.querySelector('#log_name');
+const u=document.querySelector('#log_user');
+
+
+
+var userName=' ';
+var userId=' ';
+var userInfo = localStorage.getItem('data');
+var dataUser = JSON.parse(userInfo);
+console.log(dataUser.username);
+
+
+
+let data = new FormData();
+data.append("user_id", dataUser.username);
+console.log('send data'+dataUser.username);
+
+fetch('http://localhost/data/user.php',{
+    method: "POST",
+    body: data,
+}).then((res) => {
+    console.log(res);
+    return res.json();
+}).then((data) =>{
+    console.log('data'+data.done);
+    console.log('data'+data.user.full_name);
+    userName=data.user.full_name;
+    userId=data.user.user_id;
+
+    console.log('name'+userName);
+    console.log('id'+userId);
+
+
+    n.innerHTML=data.user.full_name;
+    u.innerHTML=data.user.user_name;
+    
+
 })
+
+
+
+const reader = new FileReader();
+
+let userNewData = new FormData();
+
+//send img
+add.addEventListener("click", () => {
+  reader.addEventListener("load", () => {
+    userNewData.append("tweet_photo", reader.result);
+    post();
+  });
+  reader.readAsDataURL(image.files[0]);
+});
+
+
+//send new info
+const post = () => {
+  //let Newbirth_day = day.value + "-" + month.value + "-" + year.value;
+  userNewData.append("user_name", userName);
+  userNewData.append("tweet_text", text.value);
+  userNewData.append("user_id", userId);
+
+  fetch('http://localhost/data/post.php', {
+    method: "POST",
+    body: userNewData,
+  }).then((res) => {
+    if (res.ok) {
+      res.json().then((data) => {
+        if (data.done) {
+          //location.reload();
+        }
+      });
+    }
+  });
+};
+
+
 
 tweet.addEventListener('click',() =>{
     pop.style.display='flex';
@@ -35,36 +103,57 @@ close.addEventListener('click',() =>{
     home.style.userSelect='';
 })
 
-more.addEventListener('click',()=>{
-    theme.classList.toggle('theme');
-    profile.classList.toggle('down-more');
+popup.addEventListener('click',() =>{
+    logout.classList.toggle('on');
+    /*logout.classList.toggle('on');
+    profile.classList.toggle('down');
+    more.classList.toggle('disable');*/
 })
 
-theme.addEventListener('click',()=>{
-    if(modetype.innerHTML=='Dark'){
-        modetype.innerHTML='Light';
-        theme.classList.toggle('theme');
-        profile.classList.toggle('down-more');
-        option.classList.add('lightmode');
-        for(let i=0;i<element.length;i++){
-            element[i].classList.add('lightmode');
-            /*element[i].addEventListener('onmousemove' ,()=>{
-                element[i].classList.add('light-hover');
-            })*/
-        }
-        logo.classList.add('blue');
-    }
 
-    else{
-        modetype.innerHTML='Dark';
-        theme.classList.toggle('theme');
-        profile.classList.toggle('down-more');
-        option.classList.remove('lightmode');
-        for(let i=0;i<element.length;i++){
-            element[i].classList.remove('lightmode');
-            //element[i].classList.remove('light-hover');
-        }
-        logo.classList.remove('blue');
-    }
-    
-})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
