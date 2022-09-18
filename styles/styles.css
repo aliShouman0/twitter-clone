@@ -133,6 +133,7 @@ body {
   margin-left: 2%;
   border-radius: 100%;
   border: 3px solid black;
+  background-color: rgba(171, 171, 171, 1);
 }
 
 /* profile-info */
@@ -323,8 +324,7 @@ body {
   padding: 1rem;
 }
 
-.edit-container .btn-save,
-.btn-follow {
+.edit-container .btn-save {
   background-color: white;
   color: black;
   font-weight: bolder;
@@ -335,12 +335,8 @@ body {
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
-.btn-follow {
-  width: 65%; 
-}
 
-.edit-container .btn-save:hover,
-.btn-follow:hover {
+.edit-container .btn-save:hover {
   background-color: rgba(91, 112, 131, 0.2);
   color: white;
 }
@@ -429,41 +425,54 @@ input[type="number"] {
   margin-top: 1.2rem;
 }
 
-.input-edit  input,
+.input-edit input,
 .bio {
   width: 90%;
 }
 
 .edit-container .bio {
   height: 80px;
-  padding-top: 10px;
+  padding-top: 2px;
 }
 
-.might-like .xsmall {
-  height: 2.8rem;
-  width: 2.8rem;
-  border-radius: 100%;
+.might-like {
+  padding: 0.8rem;
+  display: flex;
+  align-items: center;  
+  border-bottom: 2.5px solid rgb(47, 51, 54); 
 }
 
-.might-like .tweet-info {
-  padding-top: 0.5vw;
-}
+
 
 .might-like .fullName {
-  font-size: 1vw;
+  font-size: 0.8vw;
 }
 .might-like .userName {
   font-size: 0.8vw;
 }
 
 .might-like .btn-follow {
-  font-weight: lighter;
-  padding: 0.5rem;
-  border-radius: 50px;
-  margin: 0.2rem;
-  margin-right: auto;
+  border-radius: 50px; 
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+  background-color: white;
+  color: black;
+  font-weight: lighter;
+  padding: 0.5rem;
+  border: none;
+  width: 5vw;   
+  margin-left: auto;
+}
+
+.might-like .xsmall {
+  height: 2.8rem;
+  width: 2.8rem;
+  margin-right: 0.3rem;
+}
+
+.btn-follow:hover {
+  background-color: rgba(91, 112, 131, 0.2);
+  color: white;
 }
 
 /* side bar */

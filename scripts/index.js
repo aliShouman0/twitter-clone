@@ -19,6 +19,7 @@ const userProfilePhoto = document.querySelectorAll(".userProfilePhoto ");
 const following_nb = document.querySelector("#following-nb ");
 const followers_nb = document.querySelector("#followers-nb ");
 const numberOfTweet = document.querySelector("#numberOfTweet");
+const unfollowUser_container = document.querySelector("#unfollowUser");
 
 //edit profile
 const bio = document.querySelector("#bio ");
@@ -39,6 +40,7 @@ const editProfileApi = "http://localhost:3000/editprofile.php";
 const getfollowingApi = "http://localhost:3000/getfollowing.php";
 const getFollowersApi = "http://localhost:3000/getfollower.php";
 const numberOfTweetApi = "http://localhost:3000/numberOfTweet.php";
+const getUnFollowUserApi = "http://localhost:3000/getUnFollowUser.php";
 
 //to sent the post data in body for get user info
 let userInfoData = new FormData();
@@ -264,6 +266,56 @@ fetch(numberOfTweetApi, {
     res.json().then((data) => {
       if (data.done) {
         numberOfTweet.textContent = data.number_of_tweets;
+      }
+    });
+  }
+});
+
+//get UnFollow User might like
+fetch(getUnFollowUserApi, {
+  method: "POST",
+  body: userInfoData,
+}).then((res) => {
+  if (res.ok) {
+    res.json().then((data) => {
+      if (data.done) {
+        //   <div class="might-like">
+        //   <img src="assets/photo-1438761681033-6461ffad8d80.jpeg" class="otherUserPhoto samll xsmall">
+        //   <div>
+        //     <h4 class="fullName">Emily Zugay</h4>
+        //     <span class="userName">@Emily_Zugay10</span>
+        //   </div>
+        //   <button class="btn-follow">Follow</button>
+        // </div>
+        console.log(data.userInfo);
+        data = data.userInfo;
+        data.forEach((user) => {
+          let might_like = document.createElement("div");
+          might_like.classList.add("might-like");
+          let img = document.createElement("div");
+          let classesToAdd = ["otherUserPhoto", "samll", "xsmall"];
+          img.classList.add(...classesToAdd);
+          if (user.profile_photo != "" && user.profile_photo != null) {
+            img.src = "http://localhost:3000/" + user.profile_photo + "";
+            img.style.background="none";
+          } 
+          let div = document.createElement("div");
+          let h4 = document.createElement("h4");
+          h4.classList.add("fullName");
+          h4.textContent = user.full_name;
+          let span = document.createElement("span");
+          span.classList.add("userName");
+          span.textContent = user.user_name;
+          let button = document.createElement("button");
+          button.classList.add("btn-follow");
+          button.textContent = "Follow";
+          div.appendChild(span);
+          div.appendChild(h4);
+          might_like.appendChild(img);
+          might_like.appendChild(div);
+          might_like.appendChild(button);
+          unfollowUser_container.appendChild(might_like);
+        });
       }
     });
   }
