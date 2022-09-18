@@ -333,7 +333,6 @@ fetch(getUnFollowUserApi, {
           might_like.appendChild(a);
           might_like.appendChild(button);
           unfollowUser_container.appendChild(might_like);
-        
           button.addEventListener("click", () => { 
             followUser(user.user_id);
           });

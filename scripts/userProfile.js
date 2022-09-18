@@ -19,6 +19,7 @@ const unfollowUser_container = document.querySelector("#unfollowUser");
 const loginUserFullName = document.querySelector("#loginUserFullName");
 const loginProfilePhoto = document.querySelector("#loginProfilePhoto");
 const logintUserName = document.querySelector("#logintUserName");
+const follow_un_btn = document.querySelector("#follow-un");
 
 // api
 const userInfoApi = "http://localhost:3000/getUserInfo.php";
@@ -26,22 +27,31 @@ const getfollowingApi = "http://localhost:3000/getfollowing.php";
 const getFollowersApi = "http://localhost:3000/getfollower.php";
 const numberOfTweetApi = "http://localhost:3000/numberOfTweet.php";
 const getUnFollowUserApi = "http://localhost:3000/getUnFollowUser.php";
-let login_user_id = 11;
+const FollowApi = "http://localhost:3000/follow.php";
+const isFollowApi = "http://localhost:3000/isFollow.php";
+const unFollowApi = "http://localhost:3000/unFollow.php";
+
+const login_user_id = 11;
 
 //user for api to get inof pf login user
-let loginuersData = new FormData();
+const loginuersData = new FormData();
 loginuersData.append("user_id", login_user_id);
 
 // given url string to get the search user info
-let url_str = document.URL;
-let url = new URL(url_str);
-let search_params = url.searchParams;
+const url_str = document.URL;
+const url = new URL(url_str);
+const search_params = url.searchParams;
 // get value of "id" parameter
 const user_id = search_params.get("id");
 
 //to sent the post data in body for get user info
-let userInfoData = new FormData();
+const userInfoData = new FormData();
 userInfoData.append("user_id", user_id);
+
+//follow unfollow isfollow post data
+const isFollowData = new FormData();
+isFollowData.append("user_id", login_user_id);
+isFollowData.append("follow_user_id", user_id);
 
 // if try to enter userprofile page fo the same user who login by edit url
 if (user_id == login_user_id) {
@@ -110,6 +120,66 @@ const profilePhoto = (img, banner) => {
       tag.style.backgroundPosition = "center";
     });
   }
+};
+
+const unFollow = () => {
+  fetch(unFollowApi, {
+    method: "POST",
+    body: isFollowData,
+  }).then((res) => {
+    if (res.ok) {
+      res.json().then((data) => {
+        if (data.done) {
+          location.reload();
+        }
+      });
+    }
+  });
+};
+
+// check if follow
+const checkIfFollow = () => {
+  fetch(isFollowApi, {
+    method: "POST",
+    body: isFollowData,
+  }).then((res) => {
+    if (res.ok) {
+      res.json().then((data) => {
+        if (data.done) {
+          if (data.isFollow) {
+            follow_un_btn.textContent = "UnFollow";
+            follow_un_btn.addEventListener("click", unFollow);
+          } else {
+            follow_un_btn.textContent = "Follow";
+            follow_un_btn.addEventListener("click", () => {
+              followUser(user_id);
+            });
+          }
+        }
+      });
+    }
+  });
+};
+checkIfFollow();
+
+// follow btn
+const followUser = (id) => {
+  let userIds = new FormData();
+  userIds.append("user_id", login_user_id);
+  userIds.append("follow_user_id", id);
+  fetch(FollowApi, {
+    method: "POST",
+    body: userIds,
+  }).then((res) => {
+    console.log(res);
+    if (res.ok) {
+      res.json().then((data) => {
+        if (data.done) {
+          location.reload();
+        }
+      });
+    }
+  });
 };
 
 // get the login user info
@@ -212,7 +282,8 @@ fetch(getUnFollowUserApi, {
           let classesToAdd = ["otherUserPhoto", "samll", "xsmall"];
           img.classList.add(...classesToAdd);
           if (user.profile_photo != "" && user.profile_photo != null) {
-            img.style.background = "url(http://localhost:3000/" + user.profile_photo + ")";
+            img.style.background =
+              "url(http://localhost:3000/" + user.profile_photo + ")";
             img.style.backgroundColor = "none";
             img.style.backgroundSize = "cover";
             img.style.backgroundRepeat = "no-repeat";
@@ -237,6 +308,9 @@ fetch(getUnFollowUserApi, {
           might_like.appendChild(a);
           might_like.appendChild(button);
           unfollowUser_container.appendChild(might_like);
+          button.addEventListener("click", () => {
+            followUser(user.user_id);
+          });
         });
       }
     });
