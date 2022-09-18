@@ -39,7 +39,7 @@
         <div class="popup header">
             <div class="popup-item icon">
                 <button class="close-button" id="close" title="close">
-                    <a href="file:///C:/Users/RT/Desktop/twitter-clone-home-page/index.html"><i class="fa fa-close"></i></a>
+                    <a href="./index.html"><i class="fa fa-close"></i></a>
                 </button>
             </div>
             <div class="popup-item logo">
@@ -50,10 +50,10 @@
             <h1 class="signup-title">Create your account</h1>
         </div>
         <div class="popup-item body-popup">
-            <input type="text" placeholder="Name" class="input signup-input"/><br>
-            <input type="text" placeholder="Username" class="input signup-input"/><br>
-            <input type="email" placeholder="Email" class="input signup-input"/><br>
-            <input type="password" placeholder="Password" class="input signup-input"/><br>
+            <input type="text" id="full_name" placeholder="Name" class="input signup-input" required/><br>
+            <input type="text" id="user_name" placeholder="Username" class="input signup-input" required/><br>
+            <input type="email" id="email" placeholder="Email" class="input signup-input" required/><br>
+            <input type="password" id="password" placeholder="Password" class="input signup-input" required/><br>
             <div class="select">
                 <select class="input month" id="month" name="month" required>
                     <option value='' selected disabled>Month</option>
@@ -135,9 +135,10 @@
             </div>
         </div>
         <div class="popup-item foot-popup">
-            <center><button class="signup-button">SIGN UP</button></center>
-        </div>    
-    </div>
+            <center><button class="signup-button" id="signup">SIGN UP</button></center>
+        </div>   
+    </div> 
     </center>
-    </html>
+    <script src="scripts/sign-up.js"></script>
+</body>
 </html>

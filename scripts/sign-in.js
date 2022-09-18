@@ -15,7 +15,15 @@ login.addEventListener('click',()=>{
         return res.json();
     }).then((data) =>{
         console.log(data.done);
+        console.log(data.id);
         if(data.done==true){
+            var user={
+                username: data.id,
+            };
+        
+            var json = JSON.stringify(user);
+            localStorage.setItem('data', json);
+            console.log('user_added');
             window.location.href='./new.html';
         }
         else{

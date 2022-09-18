@@ -7,7 +7,6 @@ const month=document.querySelector('#month');
 const day=document.querySelector('#day');
 const year=document.querySelector('#year');
 const signup=document.querySelector('#signup');
-const form=document.querySelector('#form');
 
 //waiting for clicking  
 signup.addEventListener('click',()=>{
