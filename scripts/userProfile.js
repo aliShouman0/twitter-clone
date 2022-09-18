@@ -30,8 +30,9 @@ const getUnFollowUserApi = "http://localhost:3000/getUnFollowUser.php";
 const FollowApi = "http://localhost:3000/follow.php";
 const isFollowApi = "http://localhost:3000/isFollow.php";
 const unFollowApi = "http://localhost:3000/unFollow.php";
+const getTweetApi = "http://localhost:3000/getUserTweet.php";
 
-const login_user_id = 11;
+const login_user_id = 121;
 
 //user for api to get inof pf login user
 const loginuersData = new FormData();
@@ -265,6 +266,7 @@ fetch(numberOfTweetApi, {
     });
   }
 });
+
 
 //get UnFollow User might like
 fetch(getUnFollowUserApi, {
