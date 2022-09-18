@@ -11,17 +11,17 @@ const overlay = document.getElementById("overlay");
 const close_edit_profile = document.getElementById("close");
 const edit_profile = document.getElementById("edit_profile");
 const body = document.getElementById("body");
-// const currentUserFullName = document.querySelectorAll(".currentUserFullName");
-// const userName = document.querySelectorAll(".currentUserName ");
 const joinDate = document.querySelector("#joinDate ");
 const bannerProfilePhoto = document.querySelectorAll(".profilePhoto-big ");
-// const userProfilePhoto = document.querySelectorAll(".userProfilePhoto ");
 const following_nb = document.querySelector("#following-nb ");
 const followers_nb = document.querySelector("#followers-nb ");
 const numberOfTweet = document.querySelector("#numberOfTweet");
 const unfollowUser_container = document.querySelector("#unfollowUser");
 const tweet_container = document.querySelector("#tweet");
 const media_tweet_container = document.querySelector("#media_tweet");
+const tweet_button = document.querySelector("#tweet-but");
+const tweet_popup = document.querySelector("#tweet-on");
+const close_tweet_popup = document.querySelector("#close_pop");
 
 //edit profile
 const bio = document.querySelector("#bio ");
@@ -51,6 +51,19 @@ const getNbOfLikeApi = "http://localhost:3000/getNbOfLike.php";
 //to sent the post data in body for get user info
 let userInfoData = new FormData();
 userInfoData.append("user_id", user_id);
+
+//tweet pop
+tweet_button.addEventListener("click", () => {
+  overlay.classList.remove("d-none");
+  tweet_popup.classList.remove("d-none");
+});
+
+//tweet close pop
+close_tweet_popup.addEventListener("click", () => {
+  overlay.classList.add("d-none");
+  tweet_popup.classList.add("d-none");
+  console.log("asd")
+});
 
 // edit profile
 edit_profile.addEventListener("click", () => {
@@ -335,7 +348,7 @@ const bluidLikedTweet = (tweet) => {
   nbLike.appendChild(i);
   nbLike.appendChild(nb);
   let a = document.createElement("a");
-  a.href  = "userProfile.html?id=" + tweet.user_id;
+  a.href = "userProfile.html?id=" + tweet.user_id;
   a.appendChild(h4);
   tweet_info.appendChild(a);
   tweet_info.appendChild(span);
