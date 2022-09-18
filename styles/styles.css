@@ -144,7 +144,7 @@ body {
 }
 
 .profile-info .btn {
-  margin: 1rem ;
+  margin: 1rem;
   padding: 0.6rem;
   border-radius: 50px;
   background-color: transparent;
@@ -156,9 +156,8 @@ body {
   transition: all 0.3s ease-in-out;
 }
 
-.btn-container{
-  align-self: flex-end; 
-
+.btn-container {
+  align-self: flex-end;
 }
 
 .info-content {
@@ -240,9 +239,20 @@ body {
   letter-spacing: 0.8px;
 }
 
+.tweet-info a {
+  color: white;
+  text-decoration: none;
+  transition: all 0.5s ease-in-out;
+}
+
+.tweet-info a h4:hover {
+  color: rgba(103, 103, 103, 0.4);
+}
+
 .tweet-info .fullName {
   font-size: 1.2vw;
   font-weight: bolder;
+  transition: all 0.5s ease-in-out;
 }
 
 .tweet-info .userName,
@@ -442,18 +452,16 @@ input[type="number"] {
 .might-like {
   padding: 0.8rem;
   display: flex;
-  align-items: center;  
-  border-bottom: 2.5px solid rgb(47, 51, 54); 
-  width:90%;
+  align-items: center;
+  border-bottom: 2.5px solid rgb(47, 51, 54);
+  width: 90%;
 }
- .might-like a{ 
-  display: flex;   
+.might-like a {
+  display: flex;
   width: 100%;
   text-decoration: none;
   color: white;
-  
-} 
-
+}
 
 .might-like .fullName {
   font-size: 1vw;
@@ -463,7 +471,7 @@ input[type="number"] {
 }
 
 .might-like .btn-follow {
-  border-radius: 50px; 
+  border-radius: 50px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   background-color: white;
@@ -471,7 +479,7 @@ input[type="number"] {
   font-weight: lighter;
   padding: 0.5rem;
   border: none;
-  width: 5vw;   
+  width: 5vw;
   margin-left: auto;
   font-size: 0.8vw;
 }

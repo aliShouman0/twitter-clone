@@ -285,10 +285,12 @@ const bluidLikedTweet = (tweet) => {
   i.classList.add("fa-regular");
   i.classList.add("fa-heart");
   let nb = document.createElement("span");
-  nb.textContent = 456;
   nbLike.appendChild(i);
   nbLike.appendChild(nb);
-  tweet_info.appendChild(h4);
+  let a = document.createElement("a");
+  a.href = "userProfile.html?id=" + tweet.user_id;
+  a.appendChild(h4);
+  tweet_info.appendChild(a);
   tweet_info.appendChild(span);
   tweet_info.appendChild(dataSpan);
   tweet_info.appendChild(p);
@@ -326,7 +328,7 @@ const bluidLikedTweet = (tweet) => {
       res.json().then((data) => {
         if (data.done) {
           data = data.userInfo;
-          if (data.profile_photo != null && data.profile_photo  != "") {
+          if (data.profile_photo != null && data.profile_photo != "") {
             imgUser.src = "http://localhost:3000/" + data.profile_photo;
           }
           h4.textContent = data.full_name;
