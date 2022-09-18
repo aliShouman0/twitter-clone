@@ -1,0 +1,109 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="styles/style1.css">
+        <link rel="icon" href="assets/logo.jpg">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <title>Home / Twitter</title>
+    </head>
+    <body>
+        <div class="links">
+            <div class="links-item">
+                <a href="">
+                    <span><i class="fa-brands fa-twitter"></i></span>
+                </a>
+                <a href="">
+                    <i class="fa fa-home"></i>
+                    <span class="info">Home</span>
+                </a>
+                <a href="">
+                    <i class="fa-regular fa-user"></i>
+                    <span class="info">Profile</span>
+                </a>
+                <a href="">
+                    <i class="fa fa-ellipsis"></i>
+                    <span class="info">More</span>
+                </a>
+                <button class="tweet-button" id="tweet-but">Tweet</button>
+            </div>
+            <div class="logout-popup" id="logout">
+                <button class="logout-button">Logout @karamalashkar16</button>
+            </div>
+            <div class="user-logout">
+                <button class="logoutuser" id="logoutuser" style="height: 40%;
+                margin-bottom: 5%;
+                width: 80%; background-color: #1a8cd9; color: white; border-radius: 20px;">Logout</button>
+            <div class="logout" id="popup">
+                <a href="">
+                    <img src="assets/user.jpg" alt="user-profile" class="logout-image">
+                    <div class="user-details">
+                        <span class="logout-name" id="log_name"></span><br>
+                        <span class="logout-user" id="log_user"></span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        </div>
+
+        <section class="main">    
+            <div class="home-item post">
+                    <div class="head-item">
+                        <h1 class="head-title">Home</h1>
+                    </div>
+                    <div class="create-tweet">
+                    <div class="head-item tweet">
+                        <img src="assets/user.jpg" class="head-image"/>
+                        <textarea class="head-text" placeholder="What's happening?" id="tweet_text"></textarea>
+                    </div>
+                    <div class="head-item submit">
+                        <label for="input-image" class="label" title="media"><i class="fa fa-image"></i></label>
+                        <input type="file" class="file" id="input-image"/>
+                        <button class="tweet-button mini" id="tweet">Tweet</button>
+                    </div>
+                </div>
+                <div class="post-feed" id="post-feed">
+                    
+                </div>
+
+            <div class="home-item search">
+                <div class="search-bar">
+                    <a id="startsearch" class="search-icon"><i class="fa fa-magnifying-glass"></i></a>
+                    <input type="text" class="input-search" placeholder="Search Twitter" id="search"> 
+                </div>
+                <div class="search-list" id="list">
+                    <div class="search-user"  id="search-result">
+                        <button class="user-button">
+                            <img src="assets/user.jpg" class="head-image">
+                            <div>
+                                <h2 id="search-name"></h2>
+                                <p id="search-user"></p>
+                            </div>
+                        </button>
+                    </div>    
+                </div>
+            </div>
+        </section> 
+        <div class="tweet-on" id="tweet-on">
+            <div class="tweet-on-item">
+                <button class="tweet-on-button" id="close">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="tweet-on-item">
+                <div class="head-item tweet onpop">
+                    <img src="assets/user.jpg" class="head-image"/>
+                    <textarea class="head-text" id="text-on" placeholder="What's happening?"></textarea>
+                    <hr>
+                </div>
+                <div class="head-item submit submit-onpop">
+                    <label for="input-image" class="label" title="media"><i class="fa fa-image"></i></label>
+                    <input type="file" class="file" id="image-on" accept="image/png,image/jpg,image/jpeg"/>
+                    <button class="popup-button" id="submit-tweet-on">Tweet</button>
+                </div>
+            </div>
+        </div>
+        <script src="scripts/script.js"></script>   
+    </body>
+</html>
