@@ -17,7 +17,6 @@ if (
       $userInfo[] = $row;
     }
     $done = true;
-    $done = true;
   }
 }
 
